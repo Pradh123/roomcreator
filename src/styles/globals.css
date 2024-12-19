@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.RoomDetailsMain {
+    @apply flex items-center justify-between border mt-3
+}
+
+.RoomDetailsbtn {
+    @apply absolute top-4 left-4 bg-gray-800 text-white px-4 py-2 flex items-center
+}
+
+.RoomDetailsCardimagesnumber {
+    @apply absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-2xl;
+}
+
+.getownerButton {
+    @apply bg-red-500 cursor-pointer text-white w-full py-2 mt-4;
+}
+
+.Reportlistitem {
+    @apply border px-4 py-2;
+}
+
+.RoomSharingCard {
+    @apply bg-slate-50 flex mx-10 mt-2;
+}
+
+.RoomCardSharingDetails {
+    @apply flex flex-col gap-6 w-2/3;
+}
+
+
+.RoomSharingcard {
+    @apply text-[25px] font-semibold border-2 border-red-500 border-l-0 border-t-0 border-r-0 m-1 p-2;
+}
+
+.itemsDetails {
+    @apply w-[50%] flex justify-between items-center mt-1 p-1;
+}
