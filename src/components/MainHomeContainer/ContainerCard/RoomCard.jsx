@@ -110,7 +110,7 @@ export const RoomCard = () => {
               setOwenerDetailsPopUp(true);
             }}
           >
-            GetOwnerDetails
+            GetOwnerDetails1
           </button>
         </div>
       </div>
