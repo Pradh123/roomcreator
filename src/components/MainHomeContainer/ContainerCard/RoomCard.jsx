@@ -12,8 +12,7 @@ export const RoomCard = () => {
     }, 2000);
     return () => clearInterval(id);
   }, [count]);
-  console.log(count)
-
+  // console.log(count) 
   return (
     <div className=" flex flex-col border border-gray-300  shadow-md  mt-4">
       <div className="  bg-slate-100">
