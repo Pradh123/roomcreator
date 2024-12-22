@@ -14,7 +14,7 @@ const Header = () => {
         </div>
         <div className="flex items-center space-x-4 mt-4 lg:mt-0">
           <Link
-            href="/admin/user"
+            href="/admin/sign-up"
             className=" bg-[#009587] px-4 mx-8 py-1 rounded-md hover:bg-[#007a6f] "
           >
             Post Your Room
