@@ -3,7 +3,6 @@ import { HiExternalLink } from "react-icons/hi";
 import { FaMapMarkerAlt, FaUserGraduate, FaCalendarAlt } from "react-icons/fa";
 import images from "./Images/Images";
 import Link from "next/link";
-
 export const RoomCard = () => {
  const [count, setCount] = useState(0);
   useEffect(() => {
@@ -12,7 +11,6 @@ export const RoomCard = () => {
     }, 2000);
     return () => clearInterval(id);
   }, [count]);
-  // console.log(count) 
   return (
     <div className=" flex flex-col border border-gray-300  shadow-md  mt-4">
       <div className="  bg-slate-100">
