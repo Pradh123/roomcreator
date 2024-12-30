@@ -8,7 +8,7 @@ const BottomLink = () => {
         <p> Explore nearby localities</p>
       </div>
       <hr />
-      {/* <div className='flex my-5 mx-7  gap-28'>
+      <div className='flex my-5 mx-7  gap-28'>
             <div>
                 <p className='flex gap-1 items-center'><FaMapMarkerAlt /> <span>sector 1 , Noida</span></p>
                 <p className='flex gap-1 items-center'><FaMapMarkerAlt /> <span>sector 1 , Noida</span></p>
@@ -27,7 +27,7 @@ const BottomLink = () => {
                 <p className='flex gap-1 items-center'><FaMapMarkerAlt /> <span>sector 1 , Noida</span></p>
                 <p className='flex gap-1 items-center'><FaMapMarkerAlt /> <span>sector 1 , Noida</span></p>
                 <p className='flex gap-1  items-center'><FaMapMarkerAlt /> <span>sector 1 , Noida</span></p></div>
-        </div> */}
+        </div>
     </div>
   );
 };
