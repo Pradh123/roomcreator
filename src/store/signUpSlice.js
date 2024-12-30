@@ -15,6 +15,6 @@ const signUpSlice=createSlice({
    }
 })
 
-const {formOpen,formClose} =signUpSlice.actions;
+export const {formOpen,formClose} =signUpSlice.actions;
 
 export default signUpSlice.reducer;
