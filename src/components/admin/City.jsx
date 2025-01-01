@@ -10,7 +10,7 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 const fetchAllLocation = async () => {
-  const res = await fetch("/api/cars/carrentalLocalPrice");
+  const res = await fetch("/api/city");
   return await res.json();
 };
 const fetchAllPickupLocation = async (id) => {
@@ -42,25 +42,25 @@ const Location = () => {
   };
 
   const handleAddLocation = async () => {
-    // try {
-    //   const res = await fetch("/api/cars/carrentalLocalPrice", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ localLocation }),
-    //   });
-    //   if (res?.ok) {
-    //     setLocalLocation("")
-    //     fetchAllLocation().then((res) => {
-    //       setStates(res?.data || []);
-    //     });
-    //     alert("data of location saved successfuuly");
-    //   }
-    // } catch (error) {
-    //   console.log("error :", error);
-    //   alert("something went wrong in fontend side");
-    // }
+    try {
+      const res = await fetch("/api/city", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ localLocation }),
+      });
+      if (res?.ok) {
+        setLocalLocation("")
+        fetchAllLocation().then((res) => {
+          setStates(res?.data || []);
+        });
+        alert("data of location saved successfuuly");
+      }
+    } catch (error) {
+      console.log("error :", error);
+      alert("something went wrong in fontend side");
+    }
   };
 
   const saveEditState = async (id) => {
@@ -179,16 +179,15 @@ const Location = () => {
     <>
       <div className="flex items-center gap-5 text-primary mb-5">
         <FontAwesomeIcon icon={faCube} className="text-2xl" />
-        <p className="md:text-[28px] text-xl text-black">Car Location</p>
+        <p className="md:text-[28px] text-xl text-black">City Location</p>
         <FontAwesomeIcon
           icon={faArrowRightLong}
           className=" text-teal-700 text-xl"
         />
       </div>
       <div className="w-full  border-l-2 border-teal-600 bg-white mt-2 p-4 shadow-[0_0px_10px_-4px_rgba(0,0,0,0.3)] rounded-md">
-        <p className="text-xl mb-3 font-semibold">Local Location</p>
         <p className="text-para font-semibold">
-          Pickup Location and Pickup Point
+          City location
         </p>
         <div className="border   rounded p-2">
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
@@ -196,7 +195,7 @@ const Location = () => {
               <div>
                 <div className="flex items-center justify-between gap-1">
                   <div className="md:flex items-center">
-                    <label htmlFor="state">Pickup Location :</label>
+                    <label htmlFor="state">City :</label>
                     <input
                       className=" border md:ml-2 rounded-md h-8 px-2 focus:border-primary outline-none"
                       value={localLocation}
@@ -232,11 +231,11 @@ const Location = () => {
                       {editStateId === state._id ? (
                         <input
                           className="border rounded-md h-8 px-2 focus:border-primary outline-none"
-                          defaultValue={state.localLocation}
+                          defaultValue={state.name}
                           onChange={(e) => setEditLocationValue(e.target.value)}
                         />
                       ) : (
-                        state.localLocation
+                        state.name
                       )}
                     </p>
                     <div className="flex gap-2 basis-1/3">

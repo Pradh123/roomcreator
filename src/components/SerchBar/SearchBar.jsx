@@ -193,25 +193,23 @@ const HomeRental = () => {
           </button>
         </div>
 
-        <div className="flex items-center justify-center bg-white p-4 sm:p-6 rounded-full shadow-lg w-full max-w-6xl mx-auto">
+        <div className="flex items-center justify-center bg-white  sm:p-6 rounded-full shadow-lg w-full max-w-6xl mx-auto">
           <div className="w-max relative">
             <button
-              className="w-full appearance-none border-none text-left bg-transparent text-gray-700 py-2 px-4 border border-gray-300 rounded-lg"
+              className="w-full appearance-none border-none text-left bg-transparent text-gray-700 px-4 border border-gray-300 rounded-lg"
               onClick={togglePopup}
             >
               {selectedCity ? selectedCity.name : "Select City"}
               <FontAwesomeIcon icon={faCaretDown} className="pl-2 text-black" />
             </button>
           </div>
-
           <div className="w-[2px] h-7 bg-gray-700 mx-2"></div>
           <input
             type="text"
             placeholder="Search Locality"
-            className="py-2 appearance-none border-none flex-grow text-sm md:text-base focus:outline-none text-gray-700 bg-transparent"
+            className=" appearance-none border-none flex-grow text-sm md:text-base focus:outline-none text-gray-700 bg-transparent"
           />
-
-          <button className="border text-sm md:text-lg bg-[#5564AE] hover:text-primary py-2 md:py-2 px-4 md:px-5 rounded-full text-white flex items-center">
+          <button className="border text-sm md:text-lg bg-[#5564AE] hover:text-primary py-2 px-4 md:px-5 rounded-full text-white flex items-center">
             <FontAwesomeIcon icon={faSearch} className="text-sm mr-1" />
             Search
           </button>
@@ -231,7 +229,7 @@ const HomeRental = () => {
               {allCities.map((city) => (
                 <div
                   key={city.name}
-                  className="cursor-pointer border text-center  rounded-lg overflow-hidden shadow-md w-40"
+                  className="cursor-pointer border text-center rounded-lg overflow-hidden shadow-md w-40"
                   onClick={() => handleCitySelect(city)}
                 >
                   <div

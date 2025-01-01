@@ -6,11 +6,6 @@ import BottomLink from "./BottomLink";
 const Container = () => {
   return (
     <>
-      {/* <div className=" sticky z-10">
-        {[1, 2, 3, 4, 4, 5].map((data) => (
-          <RoomCard />
-        ))}
-      </div> */}
       <RoomCard />
       {/* <BottomLink /> */}
       <div className=" text-center my-3">

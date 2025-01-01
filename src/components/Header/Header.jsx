@@ -8,9 +8,9 @@ const Header = () => {
         <div className="flex  items-center flex-shrink-0">
           <Link href="/">
             <Image
-              src="/assets/Lo.png"
+              src="/logo.png"
               alt="NoBroker Logo"
-              className="h-20 w-20  md:h-16 lg:h-16 object-contain"
+              className="h-20 w-20 md:h-10 lg:h-10"
               height={500}
               width={500}
               priority // Optional: For performance optimization
