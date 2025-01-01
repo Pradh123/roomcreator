@@ -7,27 +7,26 @@ import {
   faEdit,
   faFloppyDisk,
   faTrash,
-  faXmark,
+  faXmark, 
 } from "@fortawesome/free-solid-svg-icons";
 const fetchAllLocation = async () => {
   const res = await fetch("/api/city");
   return await res.json();
 };
 const fetchAllPickupLocation = async (id) => {
-  const res = await fetch(`/api/cars/carrentalLocalPrice/pickupLocation?id=${id}`);
+  const res = await fetch(`/api/city/subcity?id=${id}`);
   return await res.json();
 };
 const Location = () => {
   const [localLocation, setLocalLocation] = useState("");
   const [states, setStates] = useState([]);
-  const [selectedLocation,setSelectedLocation]=useState(null);
+  const [selectedLocation, setSelectedLocation] = useState(null);
   const [cities, setCities] = useState([]);
-  const [pickupLocation,setPickupLocation]=useState("")
+  const [pickupLocation, setPickupLocation] = useState("");
   const [editLocationValue, setEditLocationValue] = useState("");
   const [editPickupValue, setEditPickupValue] = useState("");
   const [editStateId, setEditStateId] = useState(null);
   const [editPickupId, setEditPickupId] = useState(null);
-
   useEffect(() => {
     fetchAllLocation().then((res) => {
       setStates(res?.data || []);
@@ -40,7 +39,6 @@ const Location = () => {
   const toggleEditCity = (StateId) => {
     setEditPickupId(StateId === editPickupId ? null : StateId);
   };
-
   const handleAddLocation = async () => {
     try {
       const res = await fetch("/api/city", {
@@ -51,11 +49,11 @@ const Location = () => {
         body: JSON.stringify({ localLocation }),
       });
       if (res?.ok) {
-        setLocalLocation("")
+        setLocalLocation("");
         fetchAllLocation().then((res) => {
           setStates(res?.data || []);
         });
-        alert("data of location saved successfuuly");
+        alert("data of City saved successfuuly");
       }
     } catch (error) {
       console.log("error :", error);
@@ -64,116 +62,119 @@ const Location = () => {
   };
 
   const saveEditState = async (id) => {
-    // try {
-    //   const res = await fetch(`/api/cars/carrentalLocalPrice?id=${id}`, {
-    //     method: "PUT",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ localLocation: editLocationValue }),
-    //   });
-    //   if (res?.ok) {
-    //     fetchAllLocation().then((res) => {
-    //       setStates(res?.data || []);
-    //     });
-    //     setEditLocationValue("");
-    //     setEditStateId(null);
-    //     alert("data of location updated successfuuly");
-    //   }
-    // } catch (error) {
-    //   console.log("error :", error);
-    //   alert("something went wrong in fontend side");
-    // }
+    try {
+      const res = await fetch(`/api/city?id=${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ localLocation: editLocationValue }),
+      });
+      if (res?.ok) {
+        fetchAllLocation().then((res) => {
+          setStates(res?.data || []);
+        });
+        setEditLocationValue("");
+        setEditStateId(null);
+        alert("data of City updated successfuuly");
+      }
+    } catch (error) {
+      console.log("error :", error);
+      alert("something went wrong in fontend side");
+    }
   };
-  const handleLocationSelect=(id)=>{
-   setSelectedLocation(id);
-   fetchAllPickupLocation(id).then((res) => {
-    setCities(res?.data || []);
-  });
-  }
+  const handleLocationSelect = (id) => {
+    setSelectedLocation(id);
+    fetchAllPickupLocation(id).then((res) => {
+      setCities(res?.data || []);
+    });
+  };
 
-  const handleAddPickupLocation=async ()=>{
-    if(!selectedLocation){
-      alert("location id is required !!!")
+  const handleAddPickupLocation = async () => {
+    if (!selectedLocation) {
+      alert("location id is required !!!");
     }
-    // try {
-    //   const res = await fetch(`/api/cars/carrentalLocalPrice/pickupLocation`, {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ name: pickupLocation ,local:selectedLocation}),
-    //   });
-    //   if (res?.ok) {
-    //     setPickupLocation("");
-    //     fetchAllPickupLocation(selectedLocation).then((res) => {
-    //       setCities(res?.data || []);
-    //     });
-    //     alert("data of pickup location saved successfuuly");
-    //   }
-    // } catch (error) {
-    //   console.log("error :", error);
-    //   alert("something went wrong in fontend side");
-    // }
-  }
-
-  const saveEditPickupLocation=async(id)=>{
-    if(!selectedLocation){
-      alert("location id is required !!!")
+    try {
+      const res = await fetch(`/api/city/subcity`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name: pickupLocation, local: selectedLocation }),
+      });
+      if (res?.ok) {
+        setPickupLocation("");
+        fetchAllPickupLocation(selectedLocation).then((res) => {
+          setCities(res?.data || []);
+        });
+        alert("data of SubCity saved successfuuly");
+      }
+    } catch (error) {
+      console.log("error :", error);
+      alert("something went wrong in fontend side");
     }
-    // try {
-    //   const res = await fetch(`/api/cars/carrentalLocalPrice/pickupLocation?id=${id}`, {
-    //     method: "PUT",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ name: editPickupValue ,local:selectedLocation}),
-    //   });
-    //   if (res?.ok) {
-    //     setEditPickupValue("")
-    //     setEditPickupId(null)
-    //     fetchAllPickupLocation(selectedLocation).then((res) => {
-    //       setCities(res?.data || []);
-    //     });
-    //     alert("data of pickup location updated successfuuly");
-    //   }
-    // } catch (error) {
-    //   console.log("error :", error);
-    //   alert("something went wrong in fontend side");
-    // }
-  }
-  const handleDeletePickupLocation=async (id)=>{
-    // try {
-    //   const res=await fetch(`/api/cars/carrentalLocalPrice/pickupLocation?id=${id}`,{method:"DELETE"});
-    //   if(res?.ok){
-    //     fetchAllPickupLocation(selectedLocation).then((res) => {
-    //       setCities(res?.data || []);
-    //     });
-    //     alert("pickup location successfully deleted");
-    //   }
-      
-    // } catch (error) {
-    //   console.log(error);
-    //   alert("something went wrong on frontend side");
-    // }
-  }
+  };
 
-  const handleDeleteLocation=async (id)=>{
-    // try {
-    //   const res=await fetch(`/api/cars/carrentalLocalPrice?id=${id}`,{method:"DELETE"});
-    //   if(res?.ok){
-    //     fetchAllLocation().then((res) => {
-    //       setStates(res?.data || []);
-    //     });
-    //     setSelectedLocation(null);
-    //     alert("location successfully deleted");
-    //   }
-      
-    // } catch (error) {
-    //   console.log(error);
-    //   alert("something went wrong on frontend side");
-    // }
-  }
+  const saveEditPickupLocation = async (id) => {
+    if (!selectedLocation) {
+      alert("location id is required !!!");
+    }
+    try {
+      const res = await fetch(`/api/city/subcity?id=${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: editPickupValue,
+          local: selectedLocation,
+        }),
+      });
+      if (res?.ok) {
+        setEditPickupValue("");
+        setEditPickupId(null);
+        fetchAllPickupLocation(selectedLocation).then((res) => {
+          setCities(res?.data || []);
+        });
+        alert("data of SubCity updated successfuuly");
+      }
+    } catch (error) {
+      console.log("error :", error);
+      alert("something went wrong in fontend side");
+    }
+  };
+  const handleDeletePickupLocation = async (id) => {
+    try {
+      const res = await fetch(`/api/city/subcity?id=${id}`, {
+        method: "DELETE",
+      });
+      if (res?.ok) {
+        fetchAllPickupLocation(selectedLocation).then((res) => {
+          setCities(res?.data || []);
+        });
+        alert("subCity successfully deleted");
+      }
+    } catch (error) {
+      console.log(error);
+      alert("something went wrong on frontend side");
+    }
+  };
+
+  const handleDeleteLocation = async (id) => {
+    try {
+      const res = await fetch(`/api/city?id=${id}`, { method: "DELETE" });
+      if (res?.ok) {
+        fetchAllLocation().then((res) => {
+          setStates(res?.data || []);
+        });
+        setSelectedLocation(null);
+        alert("location successfully deleted");
+      }
+    } catch (error) {
+      console.log(error);
+      alert("something went wrong on frontend side");
+    }
+  };
 
   return (
     <>
@@ -185,10 +186,8 @@ const Location = () => {
           className=" text-teal-700 text-xl"
         />
       </div>
-      <div className="w-full  border-l-2 border-teal-600 bg-white mt-2 p-4 shadow-[0_0px_10px_-4px_rgba(0,0,0,0.3)] rounded-md">
-        <p className="text-para font-semibold">
-          City location
-        </p>
+      <div className="w-full   border-l-2 border-teal-600 bg-white mt-2 p-4 shadow-[0_0px_10px_-4px_rgba(0,0,0,0.3)] rounded-md">
+        <p className="text-para font-semibold">City location</p>
         <div className="border   rounded p-2">
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
             <div className="border md:px-4 py-4 px-3 rounded-md bg-white">
@@ -280,10 +279,10 @@ const Location = () => {
               <div>
                 <div className="flex items-center justify-between gap-1">
                   <div className="md:flex items-center">
-                    <label htmlFor="city">Pickup Point :</label>
+                    <label htmlFor="city">Sub City :</label>
                     <input
-                       onChange={(e)=>setPickupLocation(e.target.value)}
-                       value={pickupLocation}
+                      onChange={(e) => setPickupLocation(e.target.value)}
+                      value={pickupLocation}
                       className=" border md:ml-2 rounded-md h-8 px-2 focus:border-primary outline-none"
                       name="city"
                     />
