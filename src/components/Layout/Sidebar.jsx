@@ -9,11 +9,10 @@ const Sidebar = () => {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState(null);
   const [selectedSubMenu, setSelectedSubMenu] = useState(null);
-
   const sidebarTabs = useMemo(() => [
     {
         label: "Dashboard",
-        icon: () => <FontAwesomeIcon icon={   faSliders} />,
+        icon: () => <FontAwesomeIcon icon={faSliders} />,
         href:"/admin",
        
       },
@@ -62,9 +61,7 @@ const Sidebar = () => {
     },
    
   ], []);
-
   useEffect(() => {
-    // Determine the active tab and submenu based on the current URL
     sidebarTabs.forEach(tab => {
       if (tab.subMenu) {
         tab.subMenu.forEach(subMenu => {
@@ -78,17 +75,13 @@ const Sidebar = () => {
       }
     });
   }, [router.pathname, sidebarTabs]);
-
   const handleTabToggle = (tabName) => {
     setActiveTab(prevTab => (prevTab === tabName ? null : tabName));
-    console.log('Toggle Button clicked');
     setSelectedSubMenu(null);
   };
-
   const handleSubMenuClick = (subMenuLabel, parentLabel) => {
     setSelectedSubMenu(subMenuLabel);
-    console.log('Submenu Button clicked');
-    setActiveTab(parentLabel); // Ensure the parent tab remains open
+    setActiveTab(parentLabel); 
   };
 
   const renderSubMenu = (items, parentLabel) => {
@@ -111,12 +104,12 @@ const Sidebar = () => {
   return (
     <div className="text-[14px] text-[#f5f7fb] font-sans p-4 md:w-full">
       <div className='flex flex-col gap-5'>
-        <div className="text-center block gap-4 py-4 border-b border-b-white">
+        <div className="text-center border-b border-b-white">
           <Image
-            className="w-16 mx-auto  "
-            src={"/logo.svg"}
+            className="w-40 h-15 mb-2 mx-auto"
+            src={"/logo.png"}
             alt="User"
-            width={320} height={400}
+            width={100} height={100}
           />
         </div>
         {sidebarTabs.map((tab, index) => (

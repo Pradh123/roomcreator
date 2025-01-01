@@ -1,8 +1,14 @@
+import Layout from '@/components/Layout/Layout'
+import Location from "@/components/admin/City";
 import React from 'react'
 
 const index = () => {
   return (
-    <div>index</div>
+    <Layout>
+      <div>
+        <Location/>
+      </div>
+    </Layout>
   )
 }
 

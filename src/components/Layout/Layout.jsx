@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import SidebarContent from "./Sidebar"; // Ensure this component is created
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBars, faBell, faMessage} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faBell, faMessage } from "@fortawesome/free-solid-svg-icons";
 
 const Layout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -14,14 +14,14 @@ const Layout = ({ children }) => {
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
     setIsMediumDevice(mediaQuery.matches);
-    setSidebarOpen(mediaQuery.matches); // Set sidebar open if medium device or above
+    setSidebarOpen(mediaQuery.matches);
 
     const handleResize = () => {
       setIsMediumDevice(mediaQuery.matches);
-      setSidebarOpen(mediaQuery.matches); // Set sidebar open if medium device or above
+      setSidebarOpen(mediaQuery.matches);
     };
 
-    handleResize(); // Initial check
+    handleResize();
 
     window.addEventListener("resize", handleResize);
 
@@ -74,10 +74,7 @@ const Layout = ({ children }) => {
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
-    // console.log("togle side bar ")
-    // setToglePopup(!toglePopup);
   };
-
   return (
     <div className="h-screen w-full flex overflow-hidden transition-all duration-300 ease-in-out">
       <div
@@ -98,20 +95,13 @@ const Layout = ({ children }) => {
       >
         <div className="sticky top-0 z-30 shadow-md backdrop-blur-xl bg-white/80 py-3 px-4 flex items-center gap-5">
           <div className="cursor-pointer" onClick={toggleSidebar}>
-            <FontAwesomeIcon icon={faBars}/>
+            <FontAwesomeIcon icon={faBars} />
           </div>
           <div className="flex justify-between w-full">
-            {/* <Image
-              className="w-[220px]"
-              src="dd"
-              alt="Logo"
-              width={320}
-              height={400}
-            /> */}
             <div></div>
             <div className="flex items-center gap-5">
-              <FontAwesomeIcon icon={faBell}/>
-              <FontAwesomeIcon icon={faMessage}/>
+              <FontAwesomeIcon icon={faBell} />
+              <FontAwesomeIcon icon={faMessage} />
               <div className="flex items-center gap-3">
                 <Image
                   className="hidden sm:block w-10 h-10 rounded-full"
@@ -133,7 +123,7 @@ const Layout = ({ children }) => {
               </div>
             ) : (
               <div className="pt-2 z-30">{children}</div>
-            )} 
+            )}
           </div>
         </div>
       </div>
