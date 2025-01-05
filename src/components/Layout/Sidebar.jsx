@@ -19,45 +19,39 @@ const Sidebar = () => {
       {
         label: "Others",
         icon: () => <FontAwesomeIcon icon={faOtter} />,
-        subMenu: [
-            { label: "Country-state-city", href: "/admin/website-function/country-state-city" },
-            { label: "Website Schema", href: "/admin/website-function/website-schema" },
-            { label: "Logo Management", href: "/admin/website-function/logo-management" },
-            { label: "Color Management", href: "/admin/website-function/color-management" },
-            { label: "Icon Management", href: "/admin/website-function/icon-management" }
-          ]
+       href:"/admin/others"
       },
     {
       label: "Amenities",
       icon: () => <FontAwesomeIcon icon={faChartSimple  } />,
-      href: "/admin"
+      href: "/admin/amenities"
     },
    
     {
       label: "All Users",
       icon: () => <FontAwesomeIcon icon={faUser} />,
-      href: "/admin"
+      href: "/admin/all-users"
     },
     {
         label: "All Rooms",
         icon: () => <FontAwesomeIcon icon={faHotel} />,
         subMenu: [
-          { label: "Create Room", href: "/admin/home/banner" },
-          { label: "Room List", href: "/admin/home/destinations" },
+          { label: "Create Room", href: "/admin/room/create-room" },
+          { label: "Room List", href: "/admin/room" },
         ]
       },
     {
       label: "Room",
       icon: () => <FontAwesomeIcon icon={faHotel} />,
       subMenu: [
-        { label: "Create Room", href: "/admin/home/banner" },
-        { label: "Room List", href: "/admin/home/destinations" },
+        { label: "Create Room", href: "/admin/room/create-room" },
+        { label: "Room List", href: "/admin/room" },
       ]
     },
     {
       label: "Change Password",
       icon: () => <FontAwesomeIcon icon={faPassport} />,
-      href: "/admin"
+      href: "/admin/change-password"
     },
    
   ], []);
