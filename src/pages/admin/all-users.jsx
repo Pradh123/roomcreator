@@ -4,7 +4,9 @@ import React from 'react'
 const allusers = () => {
   return (
     <Layout>
-    <div>All users listing is here </div>
+    <div className=''>
+
+    </div>
     </Layout>
   )
 }
