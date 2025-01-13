@@ -22,7 +22,7 @@ const AsideFilter = () => {
     }
   };
   return (
-    <div className="p-4 bg-white shadow-lg rounded-lg w-full">
+    <div className="p-4 bg-white shadow-lg rounded-lg w-full overflow-y-scroll max-h-[85vh]">
       {/* Header Section */}
       <div className="flex justify-between items-center mb-4">
         <h1 className="filter">
@@ -34,7 +34,7 @@ const AsideFilter = () => {
           Reset
         </button>
       </div>
-      <div className="w-full h-1 bg-green-600 mb-4 rounded"></div>
+      <hr/>
 
       {/* PG for Section */}
       <div className="mb-4">
