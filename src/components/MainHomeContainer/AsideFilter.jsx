@@ -23,7 +23,6 @@ const AsideFilter = () => {
   };
   return (
     <div className="p-4 bg-white shadow-lg rounded-lg w-full overflow-y-scroll max-h-[85vh]">
-      {/* Header Section */}
       <div className="flex justify-between items-center mb-4">
         <h1 className="filter">
           <CiFilter />
@@ -54,8 +53,6 @@ const AsideFilter = () => {
           </label>
         </div>
       </div>
-
-      {/* Room Type Section */}
       <div className="mb-4">
         <h2 className="text-md font-medium mb-2">Room Type</h2>
         <div className="grid grid-cols-2 gap-4">
@@ -77,8 +74,6 @@ const AsideFilter = () => {
           </label>
         </div>
       </div>
-
-      {/* Rent Range Section */}
       <div className="mb-4">
       <Box>
             <Slider
