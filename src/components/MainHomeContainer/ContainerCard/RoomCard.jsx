@@ -3,6 +3,7 @@
 import { FaMapMarkerAlt, FaUserGraduate, FaCalendarAlt } from "react-icons/fa";
 // import images from "./Images/Images";
 import Link from "next/link";
+import Image from "next/image";
 // export const RoomCard = () => {
 //   const [count, setCount] = useState(0);
 //   useEffect(() => {
@@ -156,8 +157,15 @@ export const RoomCard = () => {
         <main className="flex flex-wrap w-full max-w-6xl">
           {/* Image Section */}
           <div className="w-full md:w-1/3">
-            <div className="bg-gray-300 h-64 flex items-center justify-center text-gray-700 text-lg font-semibold">
-              Image
+            <div className="bg-gray-300 h-64 w-full flex items-center justify-center overflow-hidden">
+              <Image
+                alt="Room preview"
+                src="/assets/bg.jpg"
+                height={500}
+                width={500}
+                className="object-cover h-full w-full"
+                priority={true} // Improves loading for critical images
+              />
             </div>
           </div>
 
@@ -165,26 +173,28 @@ export const RoomCard = () => {
           <div className="w-full md:w-[66%]">
             <div className="bg-white">
               <div className="flex  justify-around p-4  text-center text-sm">
-                <div>
-                  <p className="text-xl font-semibold">₹9,000</p>
-                  <p className="text-gray-500">Deposit</p>
+                <div className="px-1 md:px-0">
+                  <p className="text-sm text-gray-500">Deposit</p>
+                  <p className="text-base md:text-lg  font-semibold">₹9,000</p>
                 </div>
                 <div className="w-0.5 bg-slate-300"></div>
-                <div>
-                  <p className="text-xl font-semibold">Single and Shared</p>
-                  <p className="text-gray-500">Room Type Available</p>
+                <div className="">
+                  <p className="text-sm text-gray-500"> Available Room Type</p>
+                  <p className="text-base md:text-lg  font-semibold">
+                    Single and Shared
+                  </p>
                 </div>
                 <div className="w-0.5 bg-slate-300"></div>
-                <div>
-                  <p className="text-xl font-semibold">₹9,000</p>
-                  <p className="text-gray-500">Rent/Month</p>
+                <div className=" px-1 md:px-0">
+                  <p className="text-sm text-gray-500">Rent/Month</p>
+                  <p className="text-base md:text-lg  font-semibold">₹9,000</p>
                 </div>
               </div>
             </div>
 
             {/* Content Section */}
             <hr />
-            <div className="flex-1 flex flex-col justify-between p-4 bg-white">
+            <div className="flex-1 flex flex-col justify-between md:p-4 bg-white">
               <div className="w-full flex border  border-gray-200 flex-col gap-2">
                 <div className="m-1 border">
                   <div className="flex mx-3 my-2">
@@ -194,7 +204,9 @@ export const RoomCard = () => {
                     >
                       <FaUserGraduate className="text-gray-600" />
                       <div className=" flex flex-col gap-1 mx-2">
-                        <p className="font-semibold">Any</p>
+                        <p className="text-base md:text-lg  font-semibold">
+                          Any
+                        </p>
                         <p className="text-gray-500 text-sm">
                           Preferred Tenants
                         </p>
@@ -207,7 +219,9 @@ export const RoomCard = () => {
                     >
                       <FaCalendarAlt className="text-gray-600" />
                       <div className=" flex flex-col gap-1 mx-2">
-                        <p className="font-semibold">14 Days Ago</p>
+                        <p className="text-base md:text-lg  font-semibold">
+                          14 Days Ago
+                        </p>
                         <p className="text-gray-500 text-sm">Posted On</p>
                       </div>
                     </Link>
@@ -221,7 +235,9 @@ export const RoomCard = () => {
                     >
                       <div className="text-gray-600">🍴</div>
                       <div className=" flex flex-col gap-1 mx-2">
-                        <p className="font-semibold">Breakfast, Dinner</p>
+                        <p className="text-base md:text-lg  font-semibold">
+                          Breakfast, Dinner
+                        </p>
                         <p className="text-gray-500 text-sm">Food Facility</p>
                       </div>
                     </Link>
@@ -232,7 +248,9 @@ export const RoomCard = () => {
                     >
                       <div className="text-gray-600">⏰</div>
                       <div className=" flex flex-col gap-1 mx-2">
-                        <p className="font-semibold">Not Provided</p>
+                        <p className="text-base md:text-lg  font-semibold">
+                          Not Provided
+                        </p>
                         <p className="text-gray-500 text-sm">
                           Gate Closing Time
                         </p>

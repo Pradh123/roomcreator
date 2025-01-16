@@ -1,6 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+:root {
+    --font-poppins: "Poppins";
+    --font-roboto: "Roboto";
+}
+
+body {
+    font-family: var(--font-roboto);
+    /* Default font for the body */
+}
+
+/* Headings use Poppins */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-poppins);
+}
+
+/* Paragraphs use Roboto */
+
+p {
+    font-family: var(--font-roboto);
+}
+
+/* Mobile-specific styles */
+@media screen and (max-width: 768px) {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        /* Adjust heading size for mobile */
+        font-family: var(--font-poppins);
+        /* Headings still use Poppins */
+    }
+
+    p {
+        font-family: var(--font-roboto);
+        /* Paragraphs still use Roboto */
+    }
+}
+
+
+
 .RoomDetailsMain {
     @apply flex items-center justify-between border mt-3
 }
@@ -36,4 +88,31 @@
 
 .itemsDetails {
     @apply w-[50%] flex justify-between items-center mt-1 p-1;
+}
+
+
+@layer utilities {
+    .thin-scrollbar {
+        scrollbar-width: thin;
+        /* For Firefox */
+        scrollbar-color: #888 #f1f1f1;
+        /* Thumb and track color */
+    }
+
+    .thin-scrollbar::-webkit-scrollbar {
+        width: 6px;
+        /* Width for vertical scrollbar */
+    }
+
+    .thin-scrollbar::-webkit-scrollbar-thumb {
+        background-color: #888;
+        /* Scrollbar color */
+        border-radius: 10px;
+        /* Rounded corners */
+    }
+
+    .thin-scrollbar::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+        /* Track background */
+    }
 }

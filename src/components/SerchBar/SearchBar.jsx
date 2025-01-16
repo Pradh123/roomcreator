@@ -176,7 +176,7 @@ const HomeRental = () => {
 
   return (
     <div
-      className="min-h-[60vh] bg-cover bg-center flex items-center justify-center"
+      className="min-h-[70vh] bg-cover bg-center flex items-center justify-center"
       style={{
         backgroundImage: "url('/assets/bg.jpg')",
       }}
@@ -193,26 +193,28 @@ const HomeRental = () => {
           </button>
         </div>
 
-        <div className="flex items-center justify-center bg-white  sm:p-6 rounded-full shadow-lg w-full max-w-6xl mx-auto">
-          <div className="w-max relative">
+        <div className="flex items-center  max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto p-2 md:p-6 bg-white rounded-full shadow-lg">
+          <div className="w-auto flex  flex-shrink-0  relative">
             <button
-              className="w-full appearance-none border-none text-left bg-transparent text-gray-700 px-4 border border-gray-300 rounded-lg"
+              className="appearance-none border-none bg-transparent text-gray-700 px-3 py-2 text-sm md:text-base rounded-lg focus:outline-none"
               onClick={togglePopup}
             >
               {selectedCity ? selectedCity.name : "Select City"}
               <FontAwesomeIcon icon={faCaretDown} className="pl-2 text-black" />
             </button>
           </div>
-          <div className="w-[2px] h-7 bg-gray-700 mx-2"></div>
+          <div className="w-[1px] h-6 bg-gray-300 mx-3"></div>
           <input
             type="text"
             placeholder="Search Locality"
-            className=" appearance-none border-none flex-grow text-sm md:text-base focus:outline-none text-gray-700 bg-transparent"
+            className="flex-grow text-sm md:text-base text-gray-700 bg-transparent focus:outline-none placeholder-gray-500"
           />
-          <button className="border text-sm md:text-lg bg-[#5564AE] hover:text-primary py-2 px-4 md:px-5 rounded-full text-white flex items-center">
-            <FontAwesomeIcon icon={faSearch} className="text-sm mr-1" />
-            Search
-          </button>
+          <div className=" md:block hidden">
+            <button className="flex  items-center bg-[#5564AE] hover:bg-[#445299] text-white text-sm md:text-base py-2 px-1 md:px-5 rounded-full">
+              <FontAwesomeIcon icon={faSearch} className="text-sm md:mr-2" />
+              <span className=" ">Search</span>
+            </button>
+          </div>
         </div>
       </div>
 
