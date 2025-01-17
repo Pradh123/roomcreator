@@ -4,11 +4,11 @@ import SearchBar from "@/components/SerchBar/SearchBar";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Header />
       <SearchBar />
       <MainContainer />
-    </div>
+    </>
   );
 };
 

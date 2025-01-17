@@ -37,47 +37,48 @@ const AsideFilter = () => {
 
       {/* PG for Section */}
       <div className="mb-4">
-        <h2 className="text-md font-medium mb-2">PG for</h2>
-        <div className="flex gap-4">
+        <h2 className="text-md font-bold mb-2">PG for</h2>
+        <div className="flex gap-6">
+          <label className="utilslabel ">
+            <input type="radio" name="pg" className="utilCheckBox" />
+            <span className=" md:text-base text-sm">Male</span>
+          </label>
+
           <label className="utilslabel">
             <input type="radio" name="pg" className="utilCheckBox" />
-            <span>Male</span>
+            <span className=" md:text-base text-sm">Female</span>
           </label>
           <label className="utilslabel">
             <input type="radio" name="pg" className="utilCheckBox" />
-            <span>Female</span>
-          </label>
-          <label className="utilslabel">
-            <input type="radio" name="pg" className="utilCheckBox" />
-            <span>Anyone</span>
+            <span className=" md:text-base text-sm">Anyone</span>
           </label>
         </div>
       </div>
       <div className="mb-4">
-        <h2 className="text-md font-medium mb-2">Room Type</h2>
+        <h2 className="text-base font-bold mb-2">Room Type</h2>
         <div className="grid grid-cols-2 gap-4">
-          <label className="utilslabel">
+          <label className="utilslabel gap-1 flex ">
             <input type="checkbox" name="room_type" className="utilCheckBox" />
-            <span>Single</span>
+            <span className=" md:text-base text-sm">Single</span>
           </label>
-          <label className="utilslabel">
+          <label className="utilslabel gap-1 flex ">
             <input type="checkbox" name="room_type" className="utilCheckBox" />
-            <span>Double</span>
+            <span className=" md:text-base text-sm">Double</span>
           </label>
-          <label className="utilslabel">
+          <label className="utilslabel gap-1 flex ">
             <input type="checkbox" name="room_type" className="utilCheckBox" />
-            <span>Triple</span>
+            <span className=" md:text-base text-sm">Triple</span>
           </label>
-          <label className="utilslabel">
+          <label className="utilslabel gap-1 flex ">
             <input type="checkbox" name="room_type" className="utilCheckBox" />
-            <span>Four</span>
+            <span className=" md:text-base text-sm">Four</span>
           </label>
         </div>
       </div>
       <div className="mb-4">
         <Box>
           <Slider
-            className="w-full"
+            className="w-[92%]"
             marks={priceMarks}
             step={100}
             value={priceRange}
@@ -156,54 +157,54 @@ const AsideFilter = () => {
 
       {/* Preferred For Section */}
       <div className="mb-4">
-        <h2 className="text-md font-medium mb-2">Preferred For</h2>
+        <h2 className="text-base  font-bold mb-2">Preferred For</h2>
         <div className="flex gap-4">
-          <label className="flex items-center gap-2 cursor-pointer">
+          <label className="flex items-center gap-1 cursor-pointer">
             <input
               type="checkbox"
               name="preferred_for"
               className="utilCheckBox"
             />
-            <span>Students</span>
+            <span className=" md:text-base text-sm">Students</span>
           </label>
-          <label className="flex items-center gap-2 cursor-pointer">
+          <label className="flex items-center gap-1 cursor-pointer">
             <input
               type="checkbox"
               name="preferred_for"
               className="utilCheckBox"
             />
-            <span>Professionals</span>
+            <span className=" md:text-base text-sm">Professionals</span>
           </label>
         </div>
       </div>
 
       {/* Food Included Section */}
       <div className="mb-4">
-        <h2 className="text-md font-medium mb-2">Food Included</h2>
+        <h2 className=" text-base  font-bold mb-2">Food Included</h2>
         <div className="grid grid-cols-2 gap-4">
-          <label className="flex items-center gap-2 cursor-pointer">
+          <label className="flex items-center gap-1 cursor-pointer">
             <input
               type="checkbox"
               name="food_included"
               className="utilCheckBox"
             />
-            <span>Breakfast</span>
+            <span className=" md:text-base text-sm">Breakfast</span>
           </label>
-          <label className="flex items-center gap-2 cursor-pointer">
+          <label className="flex items-center gap-1 cursor-pointer">
             <input
               type="checkbox"
               name="food_included"
               className="utilCheckBox"
             />
-            <span>Lunch</span>
+            <span className=" md:text-base text-sm">Lunch</span>
           </label>
-          <label className="flex items-center gap-2 cursor-pointer">
+          <label className="flex items-center gap-1 cursor-pointer">
             <input
               type="checkbox"
               name="food_included"
               className="utilCheckBox"
             />
-            <span>Dinner</span>
+            <span className=" md:text-base text-sm">Dinner</span>
           </label>
         </div>
       </div>

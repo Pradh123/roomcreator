@@ -145,8 +145,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCaretDown,
   faSearch,
-  faTimes,
-  faXmark,
   faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -158,9 +156,6 @@ const HomeRental = () => {
     { name: "Mumbai" },
     { name: "Delhi" },
     { name: "Chennai" },
-    { name: "Kolkata" },
-    { name: "Kolkata" },
-    { name: "Kolkata" },
     { name: "Kolkata" },
     { name: "Kolkata" },
   ];
@@ -176,7 +171,7 @@ const HomeRental = () => {
 
   return (
     <div
-      className="min-h-[70vh] bg-cover bg-center flex items-center justify-center"
+      className="min-h-[70vh] bg-red-500 w-full bg-cover  flex items-center justify-center"
       style={{
         backgroundImage: "url('/assets/bg.jpg')",
       }}
@@ -188,7 +183,7 @@ const HomeRental = () => {
         </h2>
         <h1 className="text-4xl md:text-4xl">Discover a place you all love</h1>
         <div className="flex w-full max-w-6xl justify-center mt-8">
-          <button className="bg-gradient-to-r rounded-t-[40px] from-blue-400 to-blue-300 hover:bg-gray-600 text-white font-semibold py-3 px-6 text-base md:text-base transition-transform transform hover:scale-105">
+          <button className="bg-gradient-to-r rounded-t-[40px] from-blue-400 to-blue-300 hover:bg-gray-600 text-white font-semibold py-3 px-6 text-base md:text-base">
             Pg & Rooms
           </button>
         </div>
@@ -220,9 +215,9 @@ const HomeRental = () => {
 
       {isPopupVisible && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white w-1/2 mx-auto h-[220px] overflow-auto p-6 rounded-lg shadow-lg relative">
+          <div className="bg-white md:w-1/2 w-[90%] mx-auto max-h-[70vh] h-auto overflow-y-auto p-6 rounded-lg shadow-lg relative">
             <button
-              className="absolute top-2 right-5  hover:text-gray-800"
+              className="absolute top-2 right-5 hover:text-gray-400"
               onClick={togglePopup}
             >
               <FontAwesomeIcon icon={faCircleXmark} size="lg" />
