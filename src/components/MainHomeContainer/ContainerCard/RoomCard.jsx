@@ -157,14 +157,13 @@ export const RoomCard = () => {
         <main className="flex flex-wrap w-full max-w-6xl">
           {/* Image Section */}
           <div className="w-full md:w-1/3">
-            <div className="bg-gray-300 h-64 w-full flex items-center justify-center overflow-hidden">
+            <div className=" h-auto w-full flex  overflow-hidden">
               <Image
                 alt="Room preview"
-                src="/assets/bg.jpg"
+                src="/assets/im3.jpg"
                 height={500}
                 width={500}
-                className="object-cover h-full w-full"
-                priority={true} // Improves loading for critical images
+                className=" object-contain  md:object-cover  h-full w-full sm:h-64 md:h-80 lg:h-96"
               />
             </div>
           </div>
