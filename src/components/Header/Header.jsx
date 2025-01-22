@@ -30,12 +30,12 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <Link
+          <a
             href="/admin/sign-up"
             className="bg-[#009587] text-white px-4 py-2 rounded-md hover:bg-[#007a6f] transition"
           >
             Post Your Room
-          </Link>
+          </a>
         </nav>
 
         {/* Mobile Menu Toggle */}

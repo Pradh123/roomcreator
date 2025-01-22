@@ -7,6 +7,7 @@ const Container = () => {
   return (
     <>
       <RoomCard />
+      <RoomCard /><RoomCard /><RoomCard /><RoomCard />
       {/* <BottomLink /> */}
       <div className=" text-center my-3">
         <button className=" bg-[#009587] px-4 py-3 rounded-md hover:bg-[#007a6f] ">

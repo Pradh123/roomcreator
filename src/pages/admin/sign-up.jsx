@@ -1,10 +1,11 @@
 import Header from "@/components/Header/Header";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const UserAdminForm = () => {
   const [isLogin, setIsLogin] = useState(false);
-
+const router=useRouter();
   // State to store form data
   const [formData, setFormData] = useState({
     firstName: "",
@@ -29,6 +30,7 @@ const UserAdminForm = () => {
     e.preventDefault();
     if (!isLogin) {
       console.log("Signup Data:", formData);
+      router.push('/admin');
       alert("data submmited ");
     } else {
       console.log("Login Email:", formData.email);

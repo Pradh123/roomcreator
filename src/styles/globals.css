@@ -54,7 +54,7 @@ p {
 
 
 .RoomDetailsMain {
-    @apply flex items-center justify-between border mt-3
+    @apply flex items-center justify-between lg:border mt-3
 }
 
 .RoomDetailsbtn {
