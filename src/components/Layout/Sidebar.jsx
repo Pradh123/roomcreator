@@ -26,6 +26,12 @@ const Sidebar = () => {
       icon: () => <FontAwesomeIcon icon={faChartSimple  } />,
       href: "/admin/amenities"
     },
+    {
+      label: "Profile",
+      icon: () => <FontAwesomeIcon icon={faSliders} />,
+      href:"/admin/profile",
+     
+    },
    
     {
       label: "All Users",
