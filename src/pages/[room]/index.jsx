@@ -195,7 +195,7 @@ const RoomPage = () => {
       {sliderBool && <ImageSlider setSliderBool={setSliderBool} />}
       <div>
         <div className="bg-white  ">
-          <div className=" flex flex-col lg:flex-row">
+          {/* <div className=" flex flex-col lg:flex-row">
             <div className="flex w-full">
               <div className="flex-4 px-6 py-5 border">
                 <FaHome className="text-2xl mr-2" />
@@ -224,14 +224,14 @@ const RoomPage = () => {
                 </button>
               </div>
             </div>
-          </div>
-          {/* <div className="mt-4">
+          </div> */}
+          <div className="mt-4">
             <p className="text-gray-600">
               Home / PG in Noida / PG in Sector 75 / PG for Boys in Sector 75 /
               Property Details
             </p>
-          </div> */}
-          {/* <div className="mt-4 flex h-full">
+          </div>
+          <div className="mt-4 flex h-full">
             <div className="w-2/3">
               <div className="relative flex">
                 <div>
@@ -338,9 +338,9 @@ const RoomPage = () => {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
-        {/* <div className="RoomSharingCard">
+        <div className="RoomSharingCard">
           <div className="RoomCardSharingDetails">
             {RoomSharingDetails.map((data, i) => (
               <div
@@ -463,16 +463,16 @@ const RoomPage = () => {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
 
-        {/* <div className="  flex justify-center m-auto  mt-[5vh]">
+        <div className="  flex justify-center m-auto  mt-[5vh]">
           <img
             src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg"
             alt=" google map image"
             className=" w-4/5 m-auto max-h-[70vh]  object-cover   "
           />
-        </div> */}
-        {/* <div className=" mt-3  mx-10 border border-red-500 min-h-[60vh] bg-slate-50 relative">
+        </div>
+        <div className=" mt-3  mx-10 border border-red-500 min-h-[60vh] bg-slate-50 relative">
           <h1 className=" text-center font-bold"> Rate And Review</h1>
           <div className="bg-white p-3 w-[90%] m-auto rounded-md border border-slate-300 ">
             {review.map((text, i) => (
@@ -499,10 +499,10 @@ const RoomPage = () => {
               />
             </div>
           </section>
-        </div> */}
-        {/* <div className="m-10">
+        </div>
+        <div className="m-10">
           <BottomLink />
-        </div> */}
+        </div>
       </div>
     </>
   );
