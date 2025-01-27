@@ -103,55 +103,70 @@ const SharingDetail = () => {
   ];
 
   return (
-    <div className="p-4">
-      {RoomSharingDetails.map((data, i) => (
-        <div key={i} className="border bg-white flex flex-col py-4 gap-5 px-4">
-          <p className="underline decoration-red-700 text-xl font-bold underline-offset-8">
-            {data.SharingText} Sharing Room Details
-          </p>
-          <div className="flex">
-            <div className="flex w-1/2 gap-4">
-              <p>Rent for {data.Occupancy} Occupancy</p>
-              <p className="font-semibold">₹ {data.SecurityDeposit}/M</p>
+    <>
+      <div className="p-4">
+        {RoomSharingDetails.map((data, i) => (
+          <div
+            key={i}
+            className="border bg-white flex flex-col py-4 gap-5 px-4"
+          >
+            <p className="underline text-xl decoration-red-700  font-bold underline-offset-8">
+              {data.SharingText} Sharing Room Details
+            </p>
+            <div className="flex flex-col sm:flex-row  ">
+              <div className="flex w-full sm:w-1/2 gap-2 sm:gap-5 text-sm sm:text-base">
+                <p className="text-left sm:text-base">
+                  Rent for {data.Occupancy} Occupancy
+                </p>
+                <p className="text-right sm:text-base font-semibold">
+                  ₹ {data.SecurityDeposit}/M
+                </p>
+              </div>
+              <div className="flex w-full sm:w-1/2 gap-2 sm:gap-3 justify-end text-sm sm:text-base">
+                <p className="text-left sm:text-base">Security Deposit</p>
+                <p className="text-right sm:text-base font-semibold">
+                  ₹ {data.SecurityDeposit}
+                </p>
+              </div>
             </div>
-            <div className="flex w-1/2 gap-4">
-              <p>Security Deposit</p>
-              <p className="font-semibold">₹ {data.SecurityDeposit}</p>
+
+            <div className="flex gap-5 p-2">
+              {data.Facility.map((facility, index) => (
+                <div
+                  key={index}
+                  className="max-w-[90px] max-h-[90px] px-2 py-4 bg-slate-100 flex flex-col justify-center items-center rounded-lg"
+                >
+                  <img
+                    src={facility.image}
+                    alt={`${facility.text} icon`}
+                    className="max-w-[70px] max-h-[50px]"
+                  />
+                  <p className="text-[14px]">{facility.text}</p>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="flex gap-5 p-2">
-            {data.Facility.map((facility, index) => (
+        ))}
+
+        <div className="p-2 bg-white">
+          <h1 className="text-[25px] font-semibold">Services</h1>
+          <div className="flex flex-wrap justify-between mt-4">
+            {Services.map((data, i) => (
               <div
-                key={index}
-                className="max-w-[90px] max-h-[90px] px-2 py-4 bg-slate-100 flex flex-col justify-center items-center rounded-lg"
+                key={i}
+                className="flex flex-col justify-center items-center"
               >
-                <img
-                  src={facility.image}
-                  alt={`${facility.text} icon`}
-                  className="max-w-[40px] max-h-[40px]"
-                />
-                <p className="text-[15px]">{facility.text}</p>
+                <p className="p-3 bg-white rounded-full max-w-[80px]">
+                  {data.icon}
+                </p>
+                <p>{data.services}</p>
+                <span>{data.text}</span>
               </div>
             ))}
           </div>
         </div>
-      ))}
-
-      <div className="p-2 bg-white">
-        <h1 className="text-[25px] font-semibold">Services</h1>
-        <div className="flex flex-wrap justify-between mt-4">
-          {Services.map((data, i) => (
-            <div key={i} className="flex flex-col justify-center items-center">
-              <p className="p-3 bg-white rounded-full max-w-[80px]">
-                {data.icon}
-              </p>
-              <p>{data.services}</p>
-              <span>{data.text}</span>
-            </div>
-          ))}
-        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -52,6 +52,10 @@ const SideCard = () => {
 
   return (
     <div>
+      <h1 className="font-semibold text-[20px]  w-full text-center ">
+        Similar
+        <hr className=" h-1" />
+      </h1>
       <div className="package-list">
         {/* Check if staticData has elements */}
         {staticData.length > 0 ? (
