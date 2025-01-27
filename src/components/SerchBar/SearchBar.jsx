@@ -177,7 +177,7 @@ const HomeRental = () => {
       }}
     >
       <div className="bg-gradient-to-b via-black/30 to-black/50 w-full h-full absolute"></div>
-      <div className="relative z-10 text-center text-white px-6">
+      <div className="relative z-1 text-center text-white px-6">
         <h2 className="text-yellow-400 font-semibold text-lg mb-4">
           Homes for rent that fit your timeline
         </h2>
