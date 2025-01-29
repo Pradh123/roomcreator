@@ -1,17 +1,18 @@
-import { FaMapMarkerAlt, FaUserGraduate, FaCalendarAlt } from "react-icons/fa";
+import {FaUserGraduate, FaCalendarAlt } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import images from "./Images/Images";
 import { useEffect, useState } from "react";
+import { useDispatch} from "react-redux";
+import { formOpen } from "@/store/signUpSlice";
 export const RoomCard = () => {
   const [count, setCount] = useState(0);
+  const dispatch=useDispatch();
   useEffect(() => {
     // Set interval to change image every 3 seconds
     const id = setInterval(() => {
       setCount((prevCount) => (prevCount >= images?.length - 1 ? 0 : prevCount + 1));
     }, 2000);
-
-    // Clear the interval when component unmounts
     return () => clearInterval(id);
   }, [count]);
   return (
@@ -147,7 +148,7 @@ export const RoomCard = () => {
               <button
                 className="w-full mt-4 bg-red-400 px-2 py-2 rounded"
                 onClick={() => {
-                  setOwenerDetailsPopUp(true);
+                  dispatch(formOpen());
                 }}
               >
                 GetOwnerDetails1

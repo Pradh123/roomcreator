@@ -1,15 +1,21 @@
 import { MdContactPhone } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
-import { GetOwnerDetails } from "../Buttons/Buttons";
-import {useEffect } from "react";
+import {useEffect, useState } from "react";
+import { useDispatch} from "react-redux";
+import { formClose} from "@/store/signUpSlice";
 export const OwnerDetails = () => {
- const login=
+ const [number,setNumber]=useState("")
+ const dispatch=useDispatch();
   useEffect(() => {
     document.body.classList.add("overflow-hidden");
     return () => {
       document.body.classList.remove("overflow-hidden");
     };
   }, []);
+  const handleSubmit=()=>{
+    dispatch(formClose());
+  }
+  console.log("entered number is here --> ",number);
   return (
     <>
       {/* Background overlay */}
@@ -22,7 +28,7 @@ export const OwnerDetails = () => {
           <RxCross2
             className="absolute right-3 top-3 text-[20px] font-semibold cursor-pointer"
             onClick={() => {
-              setOwenerDetailsPopUp(false);
+              dispatch(formClose());
             }}
           />
           {/* Left section */}
@@ -47,10 +53,15 @@ export const OwnerDetails = () => {
               </label>
               <input
                 type="text"
+                value={number}
+                onChange={(e)=>setNumber(e.target.value)}
                 placeholder="Enter Mobile Number"
                 className="outline-none border-2 border-t-0 border-l-0 border-r-0 border-red-500 w-full p-2"
               />
-              <GetOwnerDetails />
+              <button onClick={handleSubmit}>
+              Get Owner Details
+              </button>
+              
             </section>
           </div>
         </div>
