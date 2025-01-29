@@ -30,21 +30,21 @@ const RoomPage = () => {
     setinput("");
     setreview([...review, input]);
   };
-  console.log(review);
+  // console.log(review);
 
   return (
     <>
       <Header />
       {sliderBool && <ImageSlider setSliderBool={setSliderBool} />}
-      <div>
+       <div>
         <p className="text-gray-600">
           Home / PG in Noida / PG in Sector 75 / PG for Boys in Sector 75 /
           Property Details
         </p>
         <div className="grid grid-cols-1 lg:grid-cols-[2fr,0.9fr] gap-3 md:px-2">
-          {/* Main Content */}
+       
           <div className="px-5 grid grid-cols-1">
-            {/* Add only the necessary components */}
+           
             <div>
               <p>Trial Here</p>
             </div>
@@ -86,10 +86,10 @@ const RoomPage = () => {
             </div>
           </div>
 
-          {/* Sidebar */}
+        
           <div className="px-">
             <div className="sticky top-0 ">
-              {/* Table of contents or other sidebar elements can be added here */}
+              
               welcomr to the slode section
               <div className="">
                 <div className="border p-4">
@@ -156,15 +156,15 @@ const RoomPage = () => {
         </div>
 
         <div className="grid grid-cols-1 mt-10  lg:grid-cols-[2fr,0.9fr] gap-3 md:px-2">
-          {/* Main Content */}
+          
           <div className="grid grid-cols-1">
-            {/* Add only the necessary components */}
+           
             <div>
               <SharingDetail />
             </div>
           </div>
 
-          {/* Sidebar */}
+          
           <div className="px-1">
             <div className="sticky top-0 z-10">
               <SideCard />
@@ -173,11 +173,7 @@ const RoomPage = () => {
         </div>
 
         <div className="  flex justify-center m-auto  mt-[5vh]">
-          {/* <img
-            src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg"
-            alt=" google map image"
-            className=" w-4/5 m-auto max-h-[70vh]  object-cover   "
-          /> */}
+        
           <Itinerarymap/>
         </div>
         <div className=" mt-3  mx-10 border border-red-500 min-h-[60vh] bg-slate-50 relative">
@@ -211,7 +207,7 @@ const RoomPage = () => {
         <div className="m-10">
           <BottomLink />
         </div>
-      </div>
+      </div> 
     </>
   );
 };

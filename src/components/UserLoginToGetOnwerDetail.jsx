@@ -58,7 +58,7 @@ export const OwnerDetails = () => {
                 placeholder="Enter Mobile Number"
                 className="outline-none border-2 border-t-0 border-l-0 border-r-0 border-red-500 w-full p-2"
               />
-              <button onClick={handleSubmit}>
+              <button onClick={handleSubmit} className="px-6 py-2 bg-red-500 ">
               Get Owner Details
               </button>
               

@@ -16,4 +16,4 @@ const Itinerarymap= ()=>{
         </>
     )
 }
-export default Itinerarymap
+export default Itinerarymap
