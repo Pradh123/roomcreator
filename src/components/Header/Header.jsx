@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <header className="z-50 sticky top-0 h-[12vh] border-b bg-white shadow-md">
-      <div className="flex items-center justify-between p-4 max-w-screen-xl mx-auto">
+      <div className="flex items-center justify-between md:p-4 p-2 max-w-screen-xl mx-auto">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/">
@@ -30,12 +30,12 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <a
+          <Link
             href="/admin/sign-up"
-            className="bg-[#009587] text-white px-4 py-2 rounded-md hover:bg-[#007a6f] transition"
+            className=" bg-[#009587] text-white px-4 py-2 rounded-md hover:bg-[#007a6f] transition"
           >
             Post Your Room
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile Menu Toggle */}
