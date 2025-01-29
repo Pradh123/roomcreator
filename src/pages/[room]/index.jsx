@@ -17,10 +17,15 @@ import Header from "@/components/Header/Header";
 import SideCard from "@/components/RoomData/SideCard";
 import SharingDetail from "@/components/RoomData/SharingDetail";
 import Itinerarymap from "@/components/RoomPage/RoomMap";
+import { useDispatch, useSelector } from "react-redux";
+import { formOpen } from "@/store/signUpSlice";
+import { OwnerDetails } from "@/components/UserLoginToGetOnwerDetail";
 const RoomPage = () => {
   const [input, setinput] = useState("");
   const [review, setreview] = useState([" This product is verey very good"]);
   const [sliderBool, setSliderBool] = useState(false);
+  const dispatch=useDispatch();
+  const login=useSelector(store=>store.signup);
   const handleClickForSlider = () => {
     setSliderBool(true);
   };
@@ -35,6 +40,7 @@ const RoomPage = () => {
   return (
     <>
       <Header />
+      {login?.togle&&<OwnerDetails/>}
       {sliderBool && <ImageSlider setSliderBool={setSliderBool} />}
        <div>
         <p className="text-gray-600">
@@ -144,7 +150,7 @@ const RoomPage = () => {
                     </div>
                   </div>
                   <button
-                    // onClick={() => setOwenerDetailsPopUp(true)}
+                    onClick={() => dispatch(formOpen())}
                     className="getownerButton"
                   >
                     Get Owner Details
