@@ -21,7 +21,7 @@ const profile = () => {
 
         {/* Profile Details */}
         <div className="my-16 text-center">
-          <h1 className="text-2xl font-bold">Kevin Smith</h1>
+          <h1 className="text-2xl font-bold">Pradhumn Verma</h1>
           <p className="text-gray-500">Advisor and Consultant at Stripe Inc.</p>
         </div>
 

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faChartSimple,faSliders,faHotel,faRightFromBracket, faUser, faPassport, faOtter } from '@fortawesome/free-solid-svg-icons';
+import {faChartSimple,faSliders,faHotel,faRightFromBracket, faUser, faPassport, faOtter, faAddressBook } from '@fortawesome/free-solid-svg-icons';
 import { IoIosArrowDown } from "react-icons/io";
 const Sidebar = () => {
   const router = useRouter();
@@ -28,14 +28,14 @@ const Sidebar = () => {
     },
     {
       label: "Profile",
-      icon: () => <FontAwesomeIcon icon={faSliders} />,
+      icon: () => <FontAwesomeIcon icon={faUser} />,
       href:"/admin/profile",
      
     },
    
     {
       label: "All Users",
-      icon: () => <FontAwesomeIcon icon={faUser} />,
+      icon: () => <FontAwesomeIcon icon={faAddressBook} />,
       href: "/admin/all-users"
     },
     {

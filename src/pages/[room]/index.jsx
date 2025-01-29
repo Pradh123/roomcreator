@@ -16,6 +16,7 @@ import BottomLink from "@/components/MainHomeContainer/ContainerCard/BottomLink"
 import Header from "@/components/Header/Header";
 import SideCard from "@/components/RoomData/SideCard";
 import SharingDetail from "@/components/RoomData/SharingDetail";
+import Itinerarymap from "@/components/RoomPage/RoomMap";
 const RoomPage = () => {
   const [input, setinput] = useState("");
   const [review, setreview] = useState([" This product is verey very good"]);
@@ -172,11 +173,12 @@ const RoomPage = () => {
         </div>
 
         <div className="  flex justify-center m-auto  mt-[5vh]">
-          <img
+          {/* <img
             src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg"
             alt=" google map image"
             className=" w-4/5 m-auto max-h-[70vh]  object-cover   "
-          />
+          /> */}
+          <Itinerarymap/>
         </div>
         <div className=" mt-3  mx-10 border border-red-500 min-h-[60vh] bg-slate-50 relative">
           <h1 className=" text-center font-bold"> Rate And Review</h1>

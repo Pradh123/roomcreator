@@ -1,7 +1,19 @@
 import { FaMapMarkerAlt, FaUserGraduate, FaCalendarAlt } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
+import images from "./Images/Images";
+import { useEffect, useState } from "react";
 export const RoomCard = () => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    // Set interval to change image every 3 seconds
+    const id = setInterval(() => {
+      setCount((prevCount) => (prevCount >= images?.length - 1 ? 0 : prevCount + 1));
+    }, 2000);
+
+    // Clear the interval when component unmounts
+    return () => clearInterval(id);
+  }, [count]);
   return (
     <div>
       <div className="h-auto bg-gray-100 flex flex-col ">
@@ -30,14 +42,15 @@ export const RoomCard = () => {
         <main className="flex flex-col lg:flex-row w-full max-w-5xl">
           {/* Image Section */}
           <div className="w-full lg:w-[40%]">
-            <div className=" h-auto w-full flex  overflow-hidden">
+            <div className=" h-auto w-full flex relative  overflow-hidden">
               <Image
                 alt="Room preview"
-                src="/assets/im3.jpg"
+                src={images?.[count]}
                 height={500}
                 width={500}
                 className="h-[170px] w-full  md:w-full md:h-72 lg:h-[344px] xl:h-[316px]"
               />
+              <p className=" absolute right-1 bottom-1 bg-black bg-opacity-50  px-1 rounded-sm">{count+1}/5</p>
             </div>
           </div>
 
