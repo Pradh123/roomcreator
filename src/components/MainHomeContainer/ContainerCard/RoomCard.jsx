@@ -1,17 +1,19 @@
-import {FaUserGraduate, FaCalendarAlt } from "react-icons/fa";
+import { FaUserGraduate, FaCalendarAlt } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import images from "./Images/Images";
 import { useEffect, useState } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { formOpen } from "@/store/signUpSlice";
 export const RoomCard = () => {
   const [count, setCount] = useState(0);
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   useEffect(() => {
     // Set interval to change image every 3 seconds
     const id = setInterval(() => {
-      setCount((prevCount) => (prevCount >= images?.length - 1 ? 0 : prevCount + 1));
+      setCount((prevCount) =>
+        prevCount >= images?.length - 1 ? 0 : prevCount + 1
+      );
     }, 2000);
     return () => clearInterval(id);
   }, [count]);
@@ -22,7 +24,7 @@ export const RoomCard = () => {
 
         <div className="  bg-slate-100">
           <div className="flex flex-col my-3">
-            <div className="flex items-center gap-1 my-3 text-lg font-semibold">
+            <div className="flex items-center text-gray-800 gap-1 my-3 text-lg font-semibold">
               <p>PG For Girls In Sector 51</p>
               {/* <HiExternalLink className="text-blue-500 text-lg" /> */}
             </div>
@@ -32,9 +34,9 @@ export const RoomCard = () => {
                 opposite Ravi Women Hospital Near HP petrol pump A48, Sector 51
                 {/* <FaMapMarkerAlt className="mx-1 " /> */}
               </p>
-              <a href="#" className="text-blue-500 text-sm underline">
+              <Link href="#" className="text-blue-500 text-sm underline">
                 Explore Nearby
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -51,7 +53,9 @@ export const RoomCard = () => {
                 width={500}
                 className="h-[170px] w-full  md:w-full md:h-72 lg:h-[344px] xl:h-[316px]"
               />
-              <p className=" absolute right-1 bottom-1 bg-black bg-opacity-50  px-1 rounded-sm">{count+1}/5</p>
+              <p className=" absolute right-1 bottom-1 bg-black bg-opacity-50  px-1 rounded-sm">
+                {count + 1}/5
+              </p>
             </div>
           </div>
 
@@ -61,19 +65,23 @@ export const RoomCard = () => {
               <div className="flex  justify-around p-4  text-center text-sm">
                 <div className="px-1 md:px-0">
                   <p className="text-sm text-gray-500">Deposit</p>
-                  <p className="text-base md:text-lg  font-semibold">₹9,000</p>
+                  <p className="text-base text-gray-800 md:text-lg  font-semibold">
+                    ₹9,000
+                  </p>
                 </div>
                 <div className="w-0.5 bg-slate-300"></div>
                 <div className="">
                   <p className="text-sm text-gray-500"> Available Room Type</p>
-                  <p className="text-base md:text-lg  font-semibold">
+                  <p className="text-base text-gray-800 md:text-lg  font-semibold">
                     Single and Shared
                   </p>
                 </div>
                 <div className="w-0.5 bg-slate-300"></div>
                 <div className=" px-1 md:px-0">
                   <p className="text-sm text-gray-500">Rent/Month</p>
-                  <p className="text-base md:text-lg  font-semibold">₹9,000</p>
+                  <p className="text-base text-gray-800 md:text-lg  font-semibold">
+                    ₹9,000
+                  </p>
                 </div>
               </div>
             </div>
@@ -90,7 +98,7 @@ export const RoomCard = () => {
                     >
                       <FaUserGraduate className="text-gray-600" />
                       <div className=" flex flex-col gap-1 mx-2">
-                        <p className="text-sm md:text-lg  font-semibold">
+                        <p className="text-sm md:text-base  text-gray-800 font-semibold">
                           Any
                         </p>
                         <p className="text-gray-500 text-xs md:text-sm">
@@ -105,10 +113,12 @@ export const RoomCard = () => {
                     >
                       <FaCalendarAlt className="text-gray-600" />
                       <div className=" flex flex-col gap-1 mx-2">
-                        <p className="text-sm  md:text-lg  font-semibold">
+                        <p className="text-sm  text-gray-800 md:text-base  font-semibold">
                           14 Days Ago
                         </p>
-                        <p className="text-gray-500 text-xs md:text-sm">Posted On</p>
+                        <p className="text-gray-500 text-xs md:text-sm">
+                          Posted On
+                        </p>
                       </div>
                     </Link>
                   </div>
@@ -121,10 +131,12 @@ export const RoomCard = () => {
                     >
                       <div className="text-gray-600">🍴</div>
                       <div className=" flex flex-col gap-1 mx-2">
-                        <p className="text-sm md:text-lg  font-semibold">
+                        <p className="text-sm md:text-base text-gray-800  font-semibold">
                           Breakfast, Dinner
                         </p>
-                        <p className="text-gray-500 text-xs md:text-sm">Food Facility</p>
+                        <p className="text-gray-500 text-xs md:text-sm">
+                          Food Facility
+                        </p>
                       </div>
                     </Link>
                     <div className=" w-0.5 bg-slate-200"></div>
@@ -134,7 +146,7 @@ export const RoomCard = () => {
                     >
                       <div className="text-gray-600">⏰</div>
                       <div className=" flex flex-col gap-1 mx-2">
-                        <p className="text-sm md:text-lg  font-semibold">
+                        <p className="text-sm md:text-base text-gray-800  font-semibold">
                           Not Provided
                         </p>
                         <p className="text-gray-500 text-xs md:text-sm">

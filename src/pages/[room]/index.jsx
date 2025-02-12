@@ -22,6 +22,7 @@ import { formOpen } from "@/store/signUpSlice";
 import { OwnerDetails } from "@/components/UserLoginToGetOnwerDetail";
 
 import ReviewSection from "@/components/RoomData/ReviewCard";
+import Image from "next/image";
 const RoomPage = () => {
   const [input, setinput] = useState("");
   const [review, setreview] = useState([" This product is verey very good"]);
@@ -45,19 +46,21 @@ const RoomPage = () => {
       {login?.togle && <OwnerDetails />}
       {sliderBool && <ImageSlider setSliderBool={setSliderBool} />}
       <div>
-        <p className="text-gray-600">
+        <p className="text-gray-600 py-2 px-5">
           Home / PG in Noida / PG in Sector 75 / PG for Boys in Sector 75 /
           Property Details
         </p>
         <div className="grid grid-cols-1 lg:grid-cols-[2fr,0.9fr] gap-3 md:px-2">
           <div className="px-5 grid grid-cols-1">
-            <div>
+            {/* <div>
               <p>Trial Here</p>
-            </div>
+            </div> */}
             <div className="">
               <div className="relative flex">
                 <div>
-                  <img
+                  <Image
+                    height={500}
+                    width={500}
                     src="https://placehold.co/600x400"
                     alt="Room image"
                     className="w-full h-auto"
@@ -71,7 +74,9 @@ const RoomPage = () => {
                   </button>
                 </div>
                 <div className="flex flex-col mx-2">
-                  <img
+                  <Image
+                    height={500}
+                    width={500}
                     src="https://placehold.co/300x200"
                     alt="Room image"
                     className="w-full h-auto"
@@ -94,7 +99,7 @@ const RoomPage = () => {
 
           <div className="px-">
             <div className="sticky top-0 ">
-              welcomr to the slode section
+              {/* welcomr to the slode section */}
               <div className="">
                 <div className="border p-4">
                   <div className="border">
@@ -102,7 +107,7 @@ const RoomPage = () => {
                       <div className="flex items-center border-r px-2 py-3 w-1/2">
                         <FaUserTie className="mr-2" />
                         <div className="px-2">
-                          <p>Professional</p>
+                          <p className=" font-bold py-1">Professional</p>
                           <p>Prefered Tenant</p>
                         </div>
                       </div>

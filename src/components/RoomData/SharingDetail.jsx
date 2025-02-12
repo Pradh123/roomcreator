@@ -147,7 +147,6 @@ const SharingDetail = () => {
             </div>
           </div>
         ))}
-
         <div className="p-2 bg-white">
           <h1 className="text-[25px] font-semibold">Services</h1>
           <div className="flex flex-wrap justify-between mt-4">
