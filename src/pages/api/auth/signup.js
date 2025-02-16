@@ -1,44 +1,59 @@
-import bcrypt from 'bcryptjs';
-import sendOTPSMS from '@/utils/sendOTPSMS';
-
-const users = [];//  This should be replaced with a database in production
-
+import bcrypt from "bcrypt";
+import sendOTPSMS from "@/utils/sendOTPSMS";
+import AdminUser from "@/models/User/AdminUser";
+import DbConnection from "@/utils/db";
 export default async function handler(req, res) {
-  if (req.method === 'POST') {
-    const { name, email, password, confirmPassword, mobile } = req.body;
+  await DbConnection();
+  if (req.method === "POST") {
+    const { firstName, email, password, lastName, phone } = req.body;
 
-    if (!name || !email || !password || !confirmPassword || !mobile) {
-      return res.status(400).json({ message: 'All fields are required.' });
+    if (!firstName || !lastName || !email || !password || !phone) {
+      return res.status(400).json({ message: "All fields are required." });
+    }
+    const user = await AdminUser.findOne({ email });
+    if (user) {
+      return res.status(200).json({ message: "Admin User is already exists" });
     }
 
-    if (password !== confirmPassword) {
-      return res.status(400).json({ message: "Passwords don't match." });
-    }
-
-    const existingUser = users.find((user) => user.mobile === mobile);
-    if (existingUser) {
-      return res.status(400).json({ message: 'User already exists.' });
-    }
+    //hash the password
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const otp = Math.floor(100000 + Math.random() * 900000); // Generate 6-digit OTP
-    await sendOTPSMS(mobile, otp); // Send OTP to user's mobile number
+    //generate otp
+
+    const otp = Math.floor(100000 + Math.random() * 900000);
+
+    //send ot to the number
 
     const newUser = {
-      name,
+      firstName,
+      lastName,
       email,
+      user: "adminUser",
       password: hashedPassword,
-      mobile,
+      phone,
       otp,
       verified: false,
     };
-
-    users.push(newUser);
-
-    res.status(201).json({ message: 'User registered successfully. Please verify your OTP.' });
+    try {
+      const savedUser = await AdminUser.create(newUser);
+      return res
+        .status(201)
+        .json({
+          success: true,
+          message: "User registered successfully. Please verify your OTP.",
+        });
+    } catch (error) {
+      return res
+      .status(501)
+      .json({
+        success: false,
+        message: "something went wrong",
+        error
+      });
+    }
   } else {
-    res.setHeader('Allow', ['POST']);
+    res.setHeader("Allow", ["POST"]);
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }

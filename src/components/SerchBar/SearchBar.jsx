@@ -171,10 +171,8 @@ const HomeRental = () => {
 
   return (
     <div
-      className="min-h-[70vh] bg-red-500 w-full bg-cover  flex items-center justify-center"
-      style={{
-        backgroundImage: "url('/assets/bg.jpg')",
-      }}
+      className="min-h-[50vh] bg-red-100 w-full bg-cover  flex items-center justify-center"
+     
     >
       <div className="bg-gradient-to-b via-black/30 to-black/50 w-full h-full absolute"></div>
       <div className="relative z-1 text-center text-white px-6">
@@ -191,14 +189,14 @@ const HomeRental = () => {
         <div className="flex items-center  max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto p-2 md:p-6 bg-white rounded-full shadow-lg">
           <div className="w-auto flex  flex-shrink-0  relative">
             <button
-              className="appearance-none border-none bg-transparent text-gray-700 px-3 py-2 text-sm md:text-base rounded-lg focus:outline-none"
+              className="appearance-none border-none bg-transparent text-gray-700 px-3 py-1 text-sm md:text-base rounded-lg focus:outline-none"
               onClick={togglePopup}
             >
               {selectedCity ? selectedCity.name : "Select City"}
               <FontAwesomeIcon icon={faCaretDown} className="pl-2 text-black" />
             </button>
           </div>
-          <div className="w-[1px] h-6 bg-gray-300 mx-3"></div>
+          <div className="w-[1px] h-4 bg-gray-300 mx-3"></div>
           <input
             type="text"
             placeholder="Search Locality"

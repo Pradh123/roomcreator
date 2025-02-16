@@ -2,9 +2,10 @@ import Header from "@/components/Header/Header";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-
+import OtpPopup from "@/components/admin/OtpVerify";
 const UserAdminForm = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const [otpPopup,setOtpPopup]=useState(false);
 const router=useRouter();
   // State to store form data
   const [formData, setFormData] = useState({
@@ -13,9 +14,7 @@ const router=useRouter();
     email: "",
     password: "",
     phone: "",
-    country: "",
   });
-
   // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,12 +25,24 @@ const router=useRouter();
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isLogin) {
-      console.log("Signup Data:", formData);
-      router.push('/admin');
-      alert("data submmited ");
+      const res= await fetch(`/api/auth/signup`,{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:JSON.stringify(formData)
+      })
+    if(res?.ok){
+      setOtpPopup(true)
+      alert("signup successfully");
+
+    }
+    else{
+      alert("something went wrong");
+    }
     } else {
       console.log("Login Email:", formData.email);
       console.log("Login Password:", formData.password);
@@ -40,8 +51,9 @@ const router=useRouter();
 
   return (
     <div>
+       {otpPopup&&<OtpPopup setOtpPopup={setOtpPopup}/>}
       <Header />
-
+    
       <div className="flex mt-3 md:mt-10 items-center justify-center">
         {/* Centering the container */}
         <div className="grid grid-cols-1 md:grid-cols-2 bg-white md:shadow-md rounded-2xl w-full max-w-4xl">
@@ -75,6 +87,7 @@ const router=useRouter();
                       type="text"
                       name="firstName"
                       value={formData.firstName}
+                      required
                       onChange={handleChange}
                       placeholder="First Name"
                       className="w-full md:w-1/2 border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -93,6 +106,7 @@ const router=useRouter();
                   <input
                     type="tel"
                     name="phone"
+                    required
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Phone Number"
@@ -115,6 +129,7 @@ const router=useRouter();
               <input
                 type="email"
                 name="email"
+                required
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email Address"
@@ -123,6 +138,7 @@ const router=useRouter();
               <input
                 type="password"
                 name="password"
+                required
                 value={formData.password}
                 onChange={handleChange}
                 placeholder={isLogin ? "Password" : "Create Password"}
