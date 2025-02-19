@@ -7,7 +7,7 @@ import {
   faEdit,
   faFloppyDisk,
   faTrash,
-  faXmark, 
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 const fetchAllLocation = async () => {
   const res = await fetch("/api/city");
@@ -192,15 +192,18 @@ const Location = () => {
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
             <div className="border md:px-4 py-4 px-3 rounded-md bg-white">
               <div>
-                <div className="flex items-center justify-between gap-1">
-                  <div className="md:flex items-center">
-                    <label htmlFor="state">City :</label>
+                <div className="flex items-center justify-b gap-1">
+                  <div className="md:flex w-full items-center">
+                    <label htmlFor="city" className="w-24 md:w-20 font-bold ">
+                      City:
+                    </label>
                     <input
-                      className=" border md:ml-2 rounded-md h-8 px-2 focus:border-primary outline-none"
+                      className="border rounded-md h-8 px-2 focus:border-primary outline-none w-full"
                       value={localLocation}
                       onChange={(e) => setLocalLocation(e.target.value)}
                     />
                   </div>
+
                   <FontAwesomeIcon
                     icon={faCirclePlus}
                     onClick={handleAddLocation}
@@ -211,7 +214,7 @@ const Location = () => {
               </div>
               {/* data is here show */}
               <hr className="my-3" />
-              <div>
+              <div className=" max-h-[270px] overflow-y-auto p-3">
                 {states?.map((state) => (
                   <div
                     className="flex justify-between even:bg-slate-50 md:px-5 px-3"
@@ -278,15 +281,18 @@ const Location = () => {
             >
               <div>
                 <div className="flex items-center justify-between gap-1">
-                  <div className="md:flex items-center">
-                    <label htmlFor="city">Sub City :</label>
+                  <div className="md:flex items-center w-full">
+                    <label htmlFor="city" className="w-24 md:w-20 font-bold ">
+                      Sub City:
+                    </label>
                     <input
                       onChange={(e) => setPickupLocation(e.target.value)}
                       value={pickupLocation}
-                      className=" border md:ml-2 rounded-md h-8 px-2 focus:border-primary outline-none"
+                      className="w-full border rounded-md h-8 px-2 focus:border-primary outline-none"
                       name="city"
                     />
                   </div>
+
                   <FontAwesomeIcon
                     icon={faCirclePlus}
                     onClick={handleAddPickupLocation}
@@ -296,7 +302,7 @@ const Location = () => {
               </div>
               {/* data is here show */}
               <hr className="my-3" />
-              <div>
+              <div className=" max-h-[270px] overflow-y-auto p-3">
                 {cities?.map((city) => (
                   <div
                     className="flex justify-between even:bg-slate-50 md:px-5 px-3"

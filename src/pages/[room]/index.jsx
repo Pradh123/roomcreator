@@ -46,7 +46,7 @@ const RoomPage = () => {
       {login?.togle && <OwnerDetails />}
       {sliderBool && <ImageSlider setSliderBool={setSliderBool} />}
       <div>
-        <p className="text-gray-600 py-2 px-5">
+        <p className="text-primary py-2 px-5">
           Home / PG in Noida / PG in Sector 75 / PG for Boys in Sector 75 /
           Property Details
         </p>
@@ -105,49 +105,70 @@ const RoomPage = () => {
                   <div className="border">
                     <div className="flex justify-between items-center border-b mb-2">
                       <div className="flex items-center border-r px-2 py-3 w-1/2">
-                        <FaUserTie className="mr-2" />
+                        <FaUserTie className="mr-2 text-primary" />
                         <div className="px-2">
-                          <p className=" font-bold py-1">Professional</p>
-                          <p>Prefered Tenant</p>
+                          <p className=" font-semibold text-primary py-1">
+                            Professional
+                          </p>
+                          <p className=" text-primary text-[13px]">
+                            Prefered Tenant
+                          </p>
                         </div>
                       </div>
-                      <div className="flex items-center px-2 py-3 w-1/2">
-                        <FaCalendarAlt className="mr-2" />
-                        <div className="mr-2">
-                          <p>Aug 11, 2024</p>
-                          <p>Posted On</p>
+
+                      <div className="flex items-center border-r px-2 py-3 w-1/2">
+                        <FaCalendarAlt className="mr-2 text-primary" />
+                        <div className="px-2">
+                          <p className=" font-semibold text-primary py-1">
+                            Aug 11, 2024
+                          </p>
+                          <p className=" text-primary text-[13px]">Posted On</p>
                         </div>
                       </div>
                     </div>
                     <div className="flex justify-between items-center border-b mb-2">
                       <div className="flex items-center border-r px-2 py-3 w-1/2">
-                        <FaCar className="mr-2" />
+                        <FaCar className="mr-2 text-primary" />
                         <div className="px-2">
-                          <p> Car</p>
-                          <p>Parking</p>
+                          <p className=" font-semibold text-primary py-1">
+                            Car
+                          </p>
+                          <p className=" text-primary text-[13px]">Parking</p>
                         </div>
                       </div>
-                      <div className="flex items-center px-2 py-3 w-1/2">
-                        <FaClock className="mr-2" />
+
+                      <div className="flex items-center border-r px-2 py-3 w-1/2">
+                        <FaClock className="mr-2 text-primary" />
                         <div className="px-2">
-                          <p> Immediately</p>
-                          <p>Possesion</p>
+                          <p className=" font-semibold text-primary py-1">
+                            Immediately
+                          </p>
+                          <p className=" text-primary text-[13px]">Possesion</p>
                         </div>
                       </div>
                     </div>
                     <div className="flex justify-between items-center mb-2">
                       <div className="flex items-center border-r px-2 py-3 w-1/2">
-                        <FaUtensils className="mr-2" />
-                        <div className=" px-2">
-                          <p> Not Available</p>
-                          <p>Food Facility</p>
+                        <FaUtensils className="mr-2 text-primary" />
+                        <div className="px-2">
+                          <p className=" font-semibold text-primary py-1">
+                            Not Available
+                          </p>
+                          <p className=" text-primary text-[13px]">
+                            Food Facility
+                          </p>
                         </div>
                       </div>
-                      <div className="flex items-center px-2 py-3 w-1/2">
-                        <FaKey className="mr-2" />
-                        <div className=" px-2">
-                          <p> Not Provided</p>
-                          <p>Gate Closing Time</p>
+
+                      <div className="flex items-center border-r px-2 py-3 w-1/2">
+                        <FaKey className="mr-2 text-primary" />
+                        <div className="px-2">
+                          <p className=" font-semibold text-primary py-1">
+                            Not Provided
+                          </p>
+                          <p className=" text-primary text-[13px]">
+                            Gate Closing Time
+                          </p>
                         </div>
                       </div>
                     </div>
