@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 import  "./AdminUser";
 const UserSchema = new mongoose.Schema({
-    email: {
+    username: {
         type: String,
         required: true,
         unique: true,
@@ -24,9 +24,7 @@ const UserSchema = new mongoose.Schema({
     refreshExpiryTime: {
         type: Date,
     },
-    userType:{
-      type:String
-    },
+    
 }, { timestamps: true });
 
 const SuperAdminUser = mongoose.models.SuperAdminUser||mongoose.model('SuperAdminUser', UserSchema);

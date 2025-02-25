@@ -1,11 +1,18 @@
 import Header from "@/components/Header/Header";
 import Image from "next/image";
 import React, { useState } from "react";
+import { FaEye, FaEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const UserAdminForm = () => {
   const [formData, setFormData] = useState({
-    email: "",
+    username: "",
     password: "",
   });
+
+  const [showPassword, setShowPassword] = useState(false); // Toggle state
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -13,20 +20,46 @@ const UserAdminForm = () => {
       [name]: value,
     }));
   };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(`/api/auth/signup`, {
+    const res = await fetch(`/api/auth/login-super-admin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     });
+    const data=await res?.json();
     if (res?.ok) {
-      alert("signup successfully");
+      toast(data?.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "success",
+        transition: Bounce,
+      });
     } else {
-      alert("something went wrong");
+      toast("Invalid username or password", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "error",
+        transition: Bounce,
+      });
     }
   };
 
@@ -49,32 +82,39 @@ const UserAdminForm = () => {
               Join Us Today!
             </h2>
             <p className="text-gray-600 text-sm mb-3 md:mb-6 text-center">
-             
-                Log in to access your account
-               
+              Log in to access your account
             </p>
             <form className="space-y-4" onSubmit={handleSubmit}>
               <input
-                type="email"
-                name="email"
+                type="text"
+                name="username"
                 required
-                value={formData.email}
+                value={formData.username}
                 onChange={handleChange}
                 placeholder="Email Address"
                 className="w-full border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
-              <input
-                type="password"
-                name="password"
-                required
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="Password"
-                className="w-full border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  required
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="Password"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-1 pr-10 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700"
+                >
+                  <FontAwesomeIcon icon={showPassword ? FaEyeSlash : FaEye} />
+                </button>
+              </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 hover:opacity-90 text-white font-semibold py-2 rounded-lg  focus:outline-none focus:ring-4 focus:ring-purple-300"
+                className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 hover:opacity-90 text-white font-semibold py-2 rounded-lg focus:outline-none focus:ring-4 focus:ring-purple-300"
               >
                 Log In
               </button>
@@ -87,4 +127,3 @@ const UserAdminForm = () => {
 };
 
 export default UserAdminForm;
-
