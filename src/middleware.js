@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import jwtDecode from "jwt-decode";
 import { parse } from "cookie";
 
-userType
+// userType
 import {
   generateAccessToken,
   generateRefreshToken,
@@ -18,9 +18,9 @@ export async function middleware(req) {
   const accessToken = cookies.accessToken;
   const refreshToken = cookies.refreshToken;
 
-  // decode access token 
+  // decode access token
 
-  const user = jwtDecode(token);
+  let user;
 
   // Exclude login API route from middleware
   if (pathname === "/api/auth/login-super-admin" && method === "POST") {
@@ -30,6 +30,7 @@ export async function middleware(req) {
   // If on login page and already authenticated, redirect to admin dashboard
   if (pathname === "/admin/super-login") {
     if (refreshToken) {
+      user = jwtDecode(refreshToken);
       try {
         const refreshPayload = await verifyRefreshToken(refreshToken);
         if (!refreshPayload) {
@@ -72,7 +73,7 @@ export async function middleware(req) {
   }
 
   // Protect /admin routes
-  if (user?.userType==="super-admin"&&pathname.startsWith("/admin")) {
+  if (user?.userType === "super-admin" && pathname.startsWith("/admin")) {
     try {
       if (accessToken && (await verifyAccessToken(accessToken))) {
         return NextResponse.next();
@@ -111,7 +112,11 @@ export async function middleware(req) {
     return NextResponse.redirect(new URL("/admin/super-login", req.url));
   }
   // Protect API routes (PUT, POST, DELETE)
-  if (user?.userType==="super-admin"&&["PUT", "POST", "DELETE"].includes(method) && pathname.startsWith("/api")) {
+  if (
+    user?.userType === "super-admin" &&
+    ["PUT", "POST", "DELETE"].includes(method) &&
+    pathname.startsWith("/api")
+  ) {
     try {
       if (accessToken && (await verifyAccessToken(accessToken))) {
         return NextResponse.next();
@@ -146,10 +151,18 @@ export async function middleware(req) {
       console.error("API Authentication error:", error);
     }
 
-    return NextResponse.json({ message: "Unauthorized: Please log in" }, { status: 401 });
+    return NextResponse.json(
+      { message: "Unauthorized: Please log in" },
+      { status: 401 }
+    );
   }
 
-  const normalAdmin=["/admin/profile","/admin/room/create-room","/admin/room","/admin/change-password"]
+  const normalAdmin = [
+    "/admin/profile",
+    "/admin/room/create-room",
+    "/admin/room",
+    "/admin/change-password",
+  ];
   if (user?.userType === "admin" && !normalAdmin.includes(pathname)) {
     return NextResponse.redirect(new URL("/admin/profile", req.url)); // Redirect to allowed page
   }

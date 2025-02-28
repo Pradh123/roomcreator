@@ -67,10 +67,10 @@ const RoomPage = () => {
                   />
 
                   <button className="RoomDetailsbtn">
-                    <FaCamera className="mr-2" /> Photos
+                    <FaCamera className="mr-2" />   Photos
                   </button>
                   <button className="RoomDetailsbtn">
-                    <FaMapMarkerAlt className="mr-2" /> Location
+                    <FaMapMarkerAlt className="mr-2" />   Location
                   </button>
                 </div>
                 <div className="flex flex-col mx-2">
