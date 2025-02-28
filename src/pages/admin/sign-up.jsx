@@ -28,7 +28,7 @@ const router=useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isLogin) {
-      const res= await fetch(`/api/auth/signup`,{
+      const res= await fetch(`/api/auth/signup-admin`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json",
