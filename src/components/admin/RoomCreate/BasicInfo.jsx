@@ -135,7 +135,7 @@ const BasicInfo = ({ setActiveTab, roomData }) => {
         </div>
 
         {/* Submit Button */}
-        <div className="col-span-1 md:col-span-2 flex justify-center">
+        <div className="col-span-1  md:col-span-2 flex justify-center">
           <button
             type="submit"
             className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition"
