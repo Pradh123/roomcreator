@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
 import BasicInfo from "@/components/admin/RoomCreate/BasicInfo";
-import OverView from "@/components/admin/RoomCreate/OverView";
+import RoomImgeUpload from "@/components/admin/RoomCreate/RoomImgeUpload";
+import RoomPrice from "@/components/admin/RoomCreate/RoomPrice";
+import Map from "@/components/admin/RoomCreate/Map";
 
 export default function Room() {
   const router = useRouter();
   const { room } = router?.query;
+  const [roomData, setRoomData] = useState(null);
   const [activeTab, setActiveTab] = useState("Tab1");
 
   // Function to switch to the next tab
@@ -47,7 +50,7 @@ export default function Room() {
                 : "border-black text-slate-500"
             } px-3 py-1`}
           >
-            Overview
+            RoomImage Upload
           </button>
           <button
             onClick={() => setActiveTab("Tab3")}
@@ -57,7 +60,7 @@ export default function Room() {
                 : "border-black text-slate-500"
             } px-3 py-1`}
           >
-            Highlight
+            RoomPrice Detail
           </button>
           <button
             onClick={() => setActiveTab("Tab4")}
@@ -67,7 +70,7 @@ export default function Room() {
                 : "border-black text-slate-500"
             } px-3 py-1`}
           >
-            FAQ
+            Map
           </button>
           <button
             onClick={() => setActiveTab("Tab5")}
@@ -91,17 +94,17 @@ export default function Room() {
       <div
         className={`tab-content ${activeTab === "Tab2" ? "block" : "hidden"}`}
       >
-        <OverView roomData={roomData} setActiveTab={setActiveTab} />
+        <RoomImgeUpload roomData={roomData} setActiveTab={setActiveTab} />
       </div>
       <div
         className={`tab-content ${activeTab === "Tab3" ? "block" : "hidden"}`}
       >
-        {/* <Highlight roomData={roomData} setActiveTab={setActiveTab} /> */}
+        <RoomPrice roomData={roomData} setActiveTab={setActiveTab} />
       </div>
       <div
         className={`tab-content ${activeTab === "Tab4" ? "block" : "hidden"}`}
       >
-        {/* <Faqs roomData={roomData} setActiveTab={setActiveTab} /> */}
+        <Map roomData={roomData} setActiveTab={setActiveTab} />
       </div>
       <div
         className={`tab-content ${activeTab === "Tab5" ? "block" : "hidden"}`}

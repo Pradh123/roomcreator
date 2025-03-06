@@ -1,6 +1,8 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 const BasicInfo = ({ setActiveTab, roomData }) => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     apartmentType: "",
     bhkType: "",
@@ -19,6 +21,9 @@ const BasicInfo = ({ setActiveTab, roomData }) => {
     e.preventDefault();
     console.log("Form Submitted:", formData);
     setActiveTab("Tab2");
+    // check and remove this when need
+    const roomId = roomData?.id || "default-id";
+    router.push(`/admin/room/itinary/${roomId}`);
   };
 
   return (
