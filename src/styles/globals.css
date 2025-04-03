@@ -115,3 +115,87 @@ p {
         /* Track background */
     }
 }
+
+
+
+
+.container-wrapper {
+    margin: auto;
+    min-width: 300px;
+  }
+
+  
+@media screen and (max-width:639px) {
+    .container-wrapper {
+      width: calc(100% - 35px) !important;
+      /* padding: 0 20px; */
+      /* background-color: red !important; */
+      /* padding:0 540px !important; */
+  
+    }
+  
+    .vignette-relative {
+      /* background: radial-gradient(circle, transparent, rgb(5, 1, 53)); */
+      position: absolute;
+    }
+}
+  
+@media screen and (min-width:640px) {
+    .container-wrapper {
+      width: 600px !important;
+      /* background-color: red !important; */
+      /* padding:0 540px !important; */
+  
+    }
+  
+    .vignette-relative {
+      /* background: radial-gradient(circle, transparent, rgb(5, 1, 53)); */
+      position: absolute;
+    }
+}
+  
+  
+@media screen and (min-width: 768px) {
+    .container-wrapper {
+      width: 750px !important;
+      /* background-color: red !important; */
+      /* padding:0 540px !important; */
+  
+    }
+  
+}
+  
+  
+  @media screen and (min-width: 990px) {
+    .container-wrapper {
+      width: 950px !important;
+      /* background-color: green !important; */
+      /* padding:0 20px !important; */
+    }
+  
+}
+  
+  
+@media screen and (min-width: 1200px) {
+    .container-wrapper {
+      width: 1130px !important;
+      /* background-color: blue !important; */
+      /* padding:0 20px !important; */
+    }
+  }
+  
+@media screen and (min-width: 1400px) {
+    .container-wrapper {
+      width: 1330px !important;
+      /* background-color: blue !important; */
+      /* padding:0 20px !important; */
+    }
+}
+  
+@media screen and (min-width: 1300px) {
+    .container-wrapper {
+      width: 1280px !important;
+      /* background-color: blue !important; */
+      /* padding:0 20px !important; */
+    }
+}

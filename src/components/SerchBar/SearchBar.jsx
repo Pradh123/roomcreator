@@ -140,57 +140,46 @@
 
 // export default HomeRental;
 
+
+
+
+
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCaretDown,
   faSearch,
-  faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import CitySelection from "./CitySelection";
 
 const HomeRental = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [selectedCity, setSelectedCity] = useState(null);
-  const allCities = [
-    { name: "Bangalore" },
-    { name: "Mumbai" },
-    { name: "Delhi" },
-    { name: "Chennai" },
-    { name: "Kolkata" },
-    { name: "Kolkata" },
-  ];
-
-  const togglePopup = () => {
-    setIsPopupVisible(!isPopupVisible);
-  };
-
-  const handleCitySelect = (city) => {
-    setSelectedCity(city);
-    setIsPopupVisible(false);
-  };
-
+  const togglePopup1 = ()=>{
+    setIsPopupVisible(true);
+  }
   return (
     <div
-      className="min-h-[50vh] bg-red-100 w-full bg-cover  flex items-center justify-center"
+      className="min-h-[80vh] bg-cyan-50 w-full bg-cover  flex items-center justify-center"
      
     >
       <div className="bg-gradient-to-b via-black/30 to-black/50 w-full h-full absolute"></div>
-      <div className="relative z-1 text-center text-white px-6">
-        <h2 className="text-yellow-400 font-semibold text-lg mb-4">
+      <div className="relative z-1 text-center px-6">
+        <h2 className="text-yellow-400 font-semibold md:text-[30px] text-xl mb-4">
           Homes for rent that fit your timeline
         </h2>
-        <h1 className="text-4xl md:text-4xl">Discover a place you all love</h1>
+        <h1 className="">Discover a place you all love</h1>
         <div className="flex w-full max-w-6xl justify-center mt-8">
-          <button className="bg-gradient-to-r rounded-t-[40px] from-blue-400 to-blue-300 hover:bg-gray-600 text-white font-semibold py-3 px-6 text-base md:text-base">
+          <div className="bg-gradient-to-r rounded-t-[40px] from-blue-400 to-blue-300 hover:bg-gray-600 text-white font-semibold py-3 px-6 text-base">
             Pg & Rooms
-          </button>
+          </div>
         </div>
 
         <div className="flex items-center  max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto p-2 md:p-6 bg-white rounded-full shadow-lg">
           <div className="w-auto flex  flex-shrink-0  relative">
             <button
               className="appearance-none border-none bg-transparent text-gray-700 px-3 py-1 text-sm md:text-base rounded-lg focus:outline-none"
-              onClick={togglePopup}
+              onClick={togglePopup1}
             >
               {selectedCity ? selectedCity.name : "Select City"}
               <FontAwesomeIcon icon={faCaretDown} className="pl-2 text-black" />
@@ -212,38 +201,15 @@ const HomeRental = () => {
       </div>
 
       {isPopupVisible && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white md:w-1/2 w-[90%] mx-auto max-h-[70vh] h-auto overflow-y-auto p-6 rounded-lg shadow-lg relative">
-            <button
-              className="absolute top-2 right-5 hover:text-gray-400"
-              onClick={togglePopup}
-            >
-              <FontAwesomeIcon icon={faCircleXmark} size="lg" />
-            </button>
-            <div className="flex flex-wrap gap-4 justify-center mb-4">
-              {allCities.map((city) => (
-                <div
-                  key={city.name}
-                  className="cursor-pointer border text-center rounded-lg overflow-hidden shadow-md w-40"
-                  onClick={() => handleCitySelect(city)}
-                >
-                  <div
-                    className={`py-2 text-sm font-semibold ${
-                      selectedCity?.name === city.name
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-200 text-gray-700"
-                    }`}
-                  >
-                    {city.name}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <CitySelection 
+          setIsPopupVisible={setIsPopupVisible} 
+          isPopupVisible={isPopupVisible} 
+          setSelectedCity={setSelectedCity} 
+          selectedCity={selectedCity}
+        />
       )}
     </div>
-  );
+  )
 };
 
 export default HomeRental;
