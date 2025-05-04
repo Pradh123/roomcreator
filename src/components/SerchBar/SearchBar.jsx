@@ -210,6 +210,6 @@ const HomeRental = () => {
       )}
     </div>
   )
-};
+}
 
-export default HomeRental;
+export default HomeRental

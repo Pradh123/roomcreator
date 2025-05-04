@@ -17,7 +17,6 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <>
-      
       <div className="bg-blue-50 text-gray-700 pt-5">
         <div className="container-wrapper pb-10 pt-5">
           <div className="grid md:grid-cols-4 lg:gap-6 md:gap-3 gap-5 mx-5">

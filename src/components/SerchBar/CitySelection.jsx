@@ -68,4 +68,4 @@ const CitySelection = ({setIsPopupVisible, setSelectedCity, selectedCity, isPopu
   )
 }
 
-export default CitySelection;
+export default CitySelection
