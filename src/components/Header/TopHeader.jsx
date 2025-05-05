@@ -7,7 +7,7 @@ import Link from 'next/link';
 const TopHeader = () => {
   return (
     <>
-        <div className="hidden lg:flex justify-around items-center gap-5 w-full h-8 bg-blue-700 text-white text-xs">
+        <div className="hidden lg:flex justify-around items-center gap-5 w-full h-8 bg-teal-700 text-white text-xs">
         <div className="flex justify-center items-center gap-10">
           <div>
             <Link href="tel:+918084863546" className="flex gap-1 items-center hover:underline hover:text-gray-300">

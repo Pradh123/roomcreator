@@ -1,9 +1,10 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import MainContainer from "@/components/MainHomeContainer/MainHomeContainer";
-import PopularCities from "@/components/PopularCities";
-import SearchBar from "@/components/SerchBar/SearchBar";
-import WhyChoosePg from "@/components/WhyChoosePg ";
+import PGCardCarousel from "@/components/Home/PgPackage";
+import PopularCities from "@/components/Home/PopularCities";
+import SearchBar from "@/components/Home/SerchBar/SearchBar";
+import WhyChoosePg from "@/components/Home/WhyChoosePg ";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       {/* <MainContainer /> */}
       <WhyChoosePg />
       <PopularCities />
+      <PGCardCarousel />
       <Footer />
     </>
   )

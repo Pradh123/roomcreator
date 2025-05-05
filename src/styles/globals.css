@@ -89,6 +89,10 @@ p {
     @apply w-[50%] flex justify-between items-center mt-1 p-1;
 }
 
+ul li {
+  /* list-style: disc outside; */
+  margin-bottom: 8px;
+}
 
 @layer utilities {
     .thin-scrollbar {
@@ -117,7 +121,13 @@ p {
 }
 
 
-
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
 .container-wrapper {
     margin: auto;

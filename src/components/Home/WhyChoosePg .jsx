@@ -31,11 +31,11 @@ const features = [
 
 const WhyChoosePg = () => {
   return (
-    <section className="py-10 bg-white text-center container-wrapper">
+    <section className="pt-10 text-center container-wrapper">
       <h2 className="md:text-2xl text-xl font-semibold md:mb-2 mb-0.5">Why choose PG ?</h2>
       <div className="md:w-24 w-24 h-1 bg-teal-600 mx-auto mb-10 rounded-full"></div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:px-2 max-w-7xl mx-auto">
         {features.map((feature, idx) => (
           <div
             key={idx}
